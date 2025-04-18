@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.ShaderGraph;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -28,6 +29,85 @@ public class PlayerMovement : MonoBehaviour
     public float airMultiplier;
     public bool readyToJump = true;
     public KeyCode jumpKey = KeyCode.Space;
+
+    //pause stuff
+    public bool isPaused = false;
+    public GameObject pauseScreen;
+
+    //dodge
+    public bool canDodge = true;
+    public float dodgeLength = 5f;
+
+    private void OnEnable()
+    {
+
+        // Create a new instance of the input actions
+        var playerInput = new PlayerControls();
+
+        // Enable the input actions
+        playerInput.Player.Enable();
+
+        //Subscribe to the pause
+        playerInput.Player.Pause.performed += ctx => Pause();
+
+        //Subscribe to the dodge
+        playerInput.Player.Dodge.performed += ctx => Dodge();
+
+        //Subscribe to the recentreCam
+        playerInput.Player.RecentreCam.performed += ctx => RecentreCam();
+
+        //Subscribe to the groundPound
+        playerInput.Player.GroundPound.performed += ctx => GroundPound();
+    }
+
+    public void Pause()
+    {
+        if(isPaused == false)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            isPaused = true;
+            Time.timeScale = 0;
+            pauseScreen.SetActive(true);
+            Debug.Log("should pause");
+        }
+
+        else if(isPaused == true)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            isPaused = false;
+            Time.timeScale = 1;
+            pauseScreen.SetActive(false);
+            Debug.Log("should unpause");
+        }
+    }
+
+    public void Dodge()
+    {
+        if(canDodge == true)
+        {
+            rb.AddForce(transform.forward * dodgeLength, ForceMode.Impulse);
+            canDodge = false;
+            StartCoroutine(DodgeReset());
+            Debug.Log("should dodge");
+            //rethink this system, its kinda shit
+        }
+        
+
+    }
+
+    public void RecentreCam()
+    {
+        Debug.Log("should re-centre");
+    }
+
+    public void GroundPound()
+    {
+        Debug.Log("should ground pound");
+    }
+
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -78,7 +158,7 @@ public class PlayerMovement : MonoBehaviour
         //calculate movement direction
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
         
-        if(grounded == true)
+        if(grounded == true && isPaused == false)
         {
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
         }
@@ -114,5 +194,11 @@ public class PlayerMovement : MonoBehaviour
     private void ResetJump()
     {
         readyToJump = true;
+    }
+
+    public IEnumerator DodgeReset()
+    {
+        yield return new WaitForSeconds(3f);
+        canDodge = true;
     }
 }
