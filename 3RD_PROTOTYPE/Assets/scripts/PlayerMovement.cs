@@ -41,6 +41,9 @@ public class PlayerMovement : MonoBehaviour
     //coins
     public coinManager coinManager;
 
+    //gems
+    public gemManager gemManager;
+
     private void OnEnable()
     {
 
@@ -206,9 +209,16 @@ public class PlayerMovement : MonoBehaviour
         {
             Destroy(other.gameObject);
             coinManager.addCoin();
-            Debug.Log("collected nut");
+            Debug.Log("collected coin ");
         }
-  
+
+        if (other.tag == "Gem")
+        {
+            Destroy(other.gameObject);
+            gemManager.addGem();
+            Debug.Log("collected gem");
+        }
+
     }
     public IEnumerator DodgeReset()
     {
