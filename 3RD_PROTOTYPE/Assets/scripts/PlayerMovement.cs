@@ -38,8 +38,8 @@ public class PlayerMovement : MonoBehaviour
     public bool canDodge = true;
     public float dodgeLength = 5f;
 
-    //the nuts
-    public nutManager nutManager;
+    //coins
+    public coinManager coinManager;
 
     private void OnEnable()
     {
@@ -202,10 +202,10 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Nut")
+        if(other.tag == "Coin")
         {
             Destroy(other.gameObject);
-            nutManager.addNut();
+            coinManager.addCoin();
             Debug.Log("collected nut");
         }
   
