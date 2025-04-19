@@ -38,6 +38,9 @@ public class PlayerMovement : MonoBehaviour
     public bool canDodge = true;
     public float dodgeLength = 5f;
 
+    //the nuts
+    public nutManager nutManager;
+
     private void OnEnable()
     {
 
@@ -196,6 +199,17 @@ public class PlayerMovement : MonoBehaviour
         readyToJump = true;
     }
 
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Nut")
+        {
+            Destroy(other.gameObject);
+            nutManager.addNut();
+            Debug.Log("collected nut");
+        }
+  
+    }
     public IEnumerator DodgeReset()
     {
         yield return new WaitForSeconds(3f);
