@@ -222,12 +222,27 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("collected gem");
         }
 
-        if(other.tag == "Heart")
+        if(other.tag == "Heart" && playerHealth.currentHealth < 5f)
         {
             Destroy(other.gameObject);
             playerHealth.PlayerHeal();
             Debug.Log("collected heart");
         }
+
+        if(other.tag == "Crawler")
+        {
+            Destroy(other.gameObject);
+        }
+    }
+
+    public void OnCollisionEnter(Collision other)
+    {
+        if(other.gameObject.CompareTag("Crawler"))
+        {
+            playerHealth.PlayerHit();
+        }
+
+        
     }
     public IEnumerator DodgeReset()
     {

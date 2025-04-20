@@ -8,6 +8,10 @@ TagManager:
   - Coin
   - Gem
   - Heart
+  - Front
+  - Back
+  - Crawler
+  - HitPoint
   layers:
   - Default
   - TransparentFX
