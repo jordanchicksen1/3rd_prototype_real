@@ -12,6 +12,9 @@ TagManager:
   - Back
   - Crawler
   - HitPoint
+  - Up
+  - Down
+  - Platform
   layers:
   - Default
   - TransparentFX
