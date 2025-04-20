@@ -44,6 +44,9 @@ public class PlayerMovement : MonoBehaviour
     //gems
     public gemManager gemManager;
 
+    //playerHealth
+    public playerHealth playerHealth;
+
     private void OnEnable()
     {
 
@@ -219,6 +222,12 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("collected gem");
         }
 
+        if(other.tag == "Heart")
+        {
+            Destroy(other.gameObject);
+            playerHealth.PlayerHeal();
+            Debug.Log("collected heart");
+        }
     }
     public IEnumerator DodgeReset()
     {

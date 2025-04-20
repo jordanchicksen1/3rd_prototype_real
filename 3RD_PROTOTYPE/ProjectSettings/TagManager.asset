@@ -7,6 +7,7 @@ TagManager:
   - Nut
   - Coin
   - Gem
+  - Heart
   layers:
   - Default
   - TransparentFX
