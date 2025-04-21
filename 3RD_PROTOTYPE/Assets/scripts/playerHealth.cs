@@ -10,6 +10,7 @@ public class playerHealth : MonoBehaviour
     public float currentHealth;
     public Image healthBar;
     public TextMeshProUGUI healthText;
+    public GameObject gameOverScreen;
 
   
 
@@ -17,6 +18,16 @@ public class playerHealth : MonoBehaviour
     {
         currentHealth = maxHealth;
         updateHealthBar();
+    }
+
+    public void Update()
+    {
+        if(currentHealth == 0)
+        {
+            gameOverScreen.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
     }
 
     public void updateHealth(float amount)
