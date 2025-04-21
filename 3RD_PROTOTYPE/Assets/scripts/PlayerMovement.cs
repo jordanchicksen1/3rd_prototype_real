@@ -174,7 +174,7 @@ public class PlayerMovement : MonoBehaviour
 
         else if(grounded == false)
         {
-            rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+            rb.AddForce(moveDirection.normalized * moveSpeed *5f, ForceMode.Force);
         }
     }
         

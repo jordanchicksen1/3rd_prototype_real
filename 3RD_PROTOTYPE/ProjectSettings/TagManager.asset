@@ -16,6 +16,9 @@ TagManager:
   - Down
   - Platform
   - Bullet
+  - Button1
+  - Button2
+  - Gate
   layers:
   - Default
   - TransparentFX
