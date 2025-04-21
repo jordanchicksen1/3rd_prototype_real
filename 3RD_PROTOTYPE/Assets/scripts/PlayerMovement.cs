@@ -242,6 +242,13 @@ public class PlayerMovement : MonoBehaviour
             playerHealth.PlayerHit();
         }
 
+        if (other.gameObject.CompareTag("Bullet"))
+        {
+            Debug.Log("hit player");
+            playerHealth.PlayerHit();
+            Destroy(other.gameObject);
+        }
+
         
     }
     public IEnumerator DodgeReset()

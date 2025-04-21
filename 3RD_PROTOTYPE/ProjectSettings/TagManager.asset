@@ -15,6 +15,7 @@ TagManager:
   - Up
   - Down
   - Platform
+  - Bullet
   layers:
   - Default
   - TransparentFX
