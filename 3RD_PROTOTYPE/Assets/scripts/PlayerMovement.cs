@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
 
     //dodge
     public bool canDodge = true;
-    public float dodgeLength = 5f;
+    public float dodgeLength = 10f;
 
     //coins
     public coinManager coinManager;
@@ -96,8 +96,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if(canDodge == true)
         {
-            rb.AddForce(transform.forward * dodgeLength, ForceMode.Impulse);
+            //rb.velocity = new Vector3(0f, 0f, 0f);
+           // rb.AddForce(transform.forward * dodgeLength, ForceMode.Impulse);
             canDodge = false;
+            moveSpeed = dodgeLength;
             StartCoroutine(DodgeReset());
             Debug.Log("should dodge");
             //rethink this system, its kinda shit
@@ -253,6 +255,8 @@ public class PlayerMovement : MonoBehaviour
     }
     public IEnumerator DodgeReset()
     {
+        yield return new WaitForSeconds(0.5f);
+        moveSpeed = 7f;
         yield return new WaitForSeconds(3f);
         canDodge = true;
     }
