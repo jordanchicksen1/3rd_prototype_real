@@ -3403,7 +3403,7 @@ MonoBehaviour:
   isPaused: 0
   pauseScreen: {fileID: 515397290}
   canDodge: 1
-  dodgeLength: 300
+  dodgeLength: 20
   coinManager: {fileID: 835099445}
   gemManager: {fileID: 1949012156}
   playerHealth: {fileID: 1592200908}
