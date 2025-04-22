@@ -47,6 +47,9 @@ public class PlayerMovement : MonoBehaviour
     //playerHealth
     public playerHealth playerHealth;
 
+    //boost icon
+    public boostIcon boostIcon;
+
     private void OnEnable()
     {
 
@@ -100,6 +103,7 @@ public class PlayerMovement : MonoBehaviour
            // rb.AddForce(transform.forward * dodgeLength, ForceMode.Impulse);
             canDodge = false;
             moveSpeed = dodgeLength;
+            boostIcon.UseBoost();
             StartCoroutine(DodgeReset());
             Debug.Log("should dodge");
             //rethink this system, its kinda shit
@@ -257,6 +261,7 @@ public class PlayerMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         moveSpeed = 7f;
+        boostIcon.shouldFillBar = true;
         yield return new WaitForSeconds(3f);
         canDodge = true;
     }
