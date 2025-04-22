@@ -239,6 +239,11 @@ public class PlayerMovement : MonoBehaviour
         {
             Destroy(other.gameObject);
         }
+
+        if(other.tag == "KillBox")
+        {
+            transform.position = new Vector3(457.3f, 551.1f, -473.3f);
+        }
     }
 
     public void OnCollisionEnter(Collision other)

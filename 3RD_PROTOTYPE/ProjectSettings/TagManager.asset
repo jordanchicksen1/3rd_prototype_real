@@ -19,6 +19,7 @@ TagManager:
   - Button1
   - Button2
   - Gate
+  - KillBox
   layers:
   - Default
   - TransparentFX
