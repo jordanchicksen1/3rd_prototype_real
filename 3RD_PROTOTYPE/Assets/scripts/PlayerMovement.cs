@@ -43,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
 
     //gems
     public gemManager gemManager;
+    public GameObject gotGemText;
 
     //playerHealth
     public playerHealth playerHealth;
@@ -226,6 +227,7 @@ public class PlayerMovement : MonoBehaviour
             Destroy(other.gameObject);
             gemManager.addGem();
             Debug.Log("collected gem");
+            StartCoroutine(GotGem());
         }
 
         if(other.tag == "Heart" && playerHealth.currentHealth < 5f)
@@ -269,5 +271,21 @@ public class PlayerMovement : MonoBehaviour
         boostIcon.shouldFillBar = true;
         yield return new WaitForSeconds(3f);
         canDodge = true;
+    }
+
+    public IEnumerator GotGem()
+    {
+        yield return new WaitForSeconds(0f);
+        gotGemText.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        gotGemText.SetActive(false);
+        yield return new WaitForSeconds(0.5f);
+        gotGemText.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        gotGemText.SetActive(false);
+        yield return new WaitForSeconds(0.5f);
+        gotGemText.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        gotGemText.SetActive(false);
     }
 }

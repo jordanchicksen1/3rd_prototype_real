@@ -7,7 +7,15 @@ public class coinManager : MonoBehaviour
 {
     public int coin;
     public TextMeshProUGUI coinText;
+    public GameObject rewardGem;
 
+    public void Update()
+    {
+        if (coin > 35)
+        {
+            rewardGem.SetActive(true);
+        }
+    }
 
     public void addCoin()
     {
