@@ -7,7 +7,9 @@ public class buttonMechanism2 : MonoBehaviour
     public bool button2Pressed = false;
     public GameObject buttonUp;
     public GameObject buttonDown;
-
+    
+    public AudioSource soundFX;
+    public AudioClip ding;
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
@@ -16,6 +18,8 @@ public class buttonMechanism2 : MonoBehaviour
             button2Pressed = true;
             StartCoroutine(ButtonMovement());
             buttonDown.SetActive(true);
+            soundFX.clip = ding;
+            soundFX.Play();
         }
     }
 

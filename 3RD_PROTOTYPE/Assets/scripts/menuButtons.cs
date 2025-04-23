@@ -16,6 +16,13 @@ public class menuButtons : MonoBehaviour
     public GameObject heart3;
     public GameObject player;
     public GameObject gem;
+
+    public GameObject screen1;
+    public GameObject screen2;
+    public GameObject screen3;
+    public GameObject screen4;
+    public GameObject screen5;
+
     public void StartGame()
     {
         title.SetActive(false);
@@ -26,8 +33,32 @@ public class menuButtons : MonoBehaviour
 
     public void PlayButton()
     {
-
+        screen1.SetActive(true);
     }
+
+    public void NextOne()
+    {
+        screen1.SetActive(false);
+        screen2.SetActive(true);
+    }
+
+    public void NextTwo()
+    {
+        screen2.SetActive(false);
+        screen3.SetActive(true);
+    }
+
+    public void NextThree()
+    {
+        screen3.SetActive(false);
+        screen4.SetActive(true);
+    }
+    public void NextFour()
+    {
+        screen4.SetActive(false);
+        screen5.SetActive(true);
+    }
+
     public void RetryButton()
     {
         SceneManager.LoadScene("Game");
