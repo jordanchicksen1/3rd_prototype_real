@@ -51,6 +51,19 @@ public class PlayerMovement : MonoBehaviour
     //boost icon
     public boostIcon boostIcon;
 
+    //particle effects
+    public ParticleSystem coinParticle;
+    public ParticleSystem hitParticle;
+    public ParticleSystem heartParticle;
+    public ParticleSystem gemParticle;
+
+    //sound effects
+    public AudioSource sfx;
+    public AudioClip ouch;
+    public AudioClip coin;
+    public AudioClip gem;
+    public AudioClip health;
+
     private void OnEnable()
     {
 
@@ -220,6 +233,9 @@ public class PlayerMovement : MonoBehaviour
             Destroy(other.gameObject);
             coinManager.addCoin();
             Debug.Log("collected coin ");
+            coinParticle.Play();
+            sfx.clip = coin;
+            sfx.Play();
         }
 
         if (other.tag == "Gem")
@@ -228,6 +244,9 @@ public class PlayerMovement : MonoBehaviour
             gemManager.addGem();
             Debug.Log("collected gem");
             StartCoroutine(GotGem());
+            gemParticle.Play();
+            sfx.clip = gem;
+            sfx.Play();
         }
 
         if(other.tag == "Heart" && playerHealth.currentHealth < 5f)
@@ -235,6 +254,9 @@ public class PlayerMovement : MonoBehaviour
             Destroy(other.gameObject);
             playerHealth.PlayerHeal();
             Debug.Log("collected heart");
+            heartParticle.Play();
+            sfx.clip = health;
+            sfx.Play();
         }
 
         if(other.tag == "Crawler")
@@ -253,6 +275,9 @@ public class PlayerMovement : MonoBehaviour
         if(other.gameObject.CompareTag("Crawler"))
         {
             playerHealth.PlayerHit();
+            hitParticle.Play();
+            sfx.clip = ouch;
+            sfx.Play();
         }
 
         if (other.gameObject.CompareTag("Bullet"))
@@ -260,6 +285,9 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("hit player");
             playerHealth.PlayerHit();
             Destroy(other.gameObject);
+            hitParticle.Play();
+            sfx.clip = ouch;
+            sfx.Play();
         }
 
         
