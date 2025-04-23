@@ -33,6 +33,14 @@ public class PlayerMovement : MonoBehaviour
     //pause stuff
     public bool isPaused = false;
     public GameObject pauseScreen;
+    public GameObject gemPic1;
+    public GameObject gemPic2;
+    public GameObject gemPic3;
+    public GameObject gemPic4;
+    public GameObject gemPic5;
+    public GameObject gemPic6;
+    public GameObject gemPic7;
+
 
     //dodge
     public bool canDodge = true;
@@ -63,6 +71,10 @@ public class PlayerMovement : MonoBehaviour
     public AudioClip coin;
     public AudioClip gem;
     public AudioClip health;
+
+    //game end
+    public GameObject levelEndScreen;
+    public AudioClip celebrationSFX;
 
     private void OnEnable()
     {
@@ -267,6 +279,13 @@ public class PlayerMovement : MonoBehaviour
         if(other.tag == "KillBox")
         {
             transform.position = new Vector3(457.3f, 551.1f, -473.3f);
+        }
+
+        if(other.tag == "LevelEnd")
+        {
+            levelEndScreen.SetActive(true);
+            sfx.clip = celebrationSFX;
+            sfx.Play();
         }
     }
 

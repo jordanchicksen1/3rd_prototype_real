@@ -20,6 +20,14 @@ TagManager:
   - Button2
   - Gate
   - KillBox
+  - LevelEnd
+  - Gem1
+  - Gem2
+  - Gem3
+  - Gem4
+  - Gem5
+  - Gem6
+  - Gem7
   layers:
   - Default
   - TransparentFX
