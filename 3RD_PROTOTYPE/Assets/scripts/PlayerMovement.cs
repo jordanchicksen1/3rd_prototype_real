@@ -288,6 +288,8 @@ public class PlayerMovement : MonoBehaviour
             levelEndScreen.SetActive(true);
             sfx.clip = celebrationSFX;
             sfx.Play();
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
 
         //gem on triggers to make them disappear from map
