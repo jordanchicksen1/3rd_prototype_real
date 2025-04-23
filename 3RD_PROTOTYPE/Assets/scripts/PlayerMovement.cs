@@ -41,6 +41,8 @@ public class PlayerMovement : MonoBehaviour
     public GameObject gemPic6;
     public GameObject gemPic7;
 
+    public bool gotGem7 = false;
+
 
     //dodge
     public bool canDodge = true;
@@ -287,6 +289,51 @@ public class PlayerMovement : MonoBehaviour
             sfx.clip = celebrationSFX;
             sfx.Play();
         }
+
+        //gem on triggers to make them disappear from map
+        if((other.tag == "Gem1"))
+        {
+            Destroy(gemPic1);
+            Destroy(other.gameObject);
+        }
+
+        if ((other.tag == "Gem2"))
+        {
+            Destroy(gemPic2);
+            Destroy(other.gameObject);
+        }
+
+        if ((other.tag == "Gem3"))
+        {
+            Destroy(gemPic3);
+            Destroy(other.gameObject);
+        }
+
+        if ((other.tag == "Gem4"))
+        {
+            Destroy(gemPic4);
+            Destroy(other.gameObject);
+        }
+
+        if ((other.tag == "Gem5"))
+        {
+            Destroy(gemPic5);
+            Destroy(other.gameObject);
+        }
+
+        if ((other.tag == "Gem6"))
+        {
+            Destroy(gemPic6);
+            Destroy(other.gameObject);
+        }
+
+        if ((other.tag == "Gem7"))
+        {
+            gotGem7 = true;
+            gemPic7.SetActive(false);
+            Destroy(other.gameObject);
+        }
+
     }
 
     public void OnCollisionEnter(Collision other)

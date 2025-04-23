@@ -10,14 +10,19 @@ public class coinManager : MonoBehaviour
     public GameObject rewardGem;
     public GameObject gem7Trigger;
     public GameObject gem7UI;
+    public PlayerMovement playerMovement;
 
     public void Update()
     {
-        if (coin > 35)
+        if (coin > 34.99 && playerMovement.gotGem7 == false)
         {
             rewardGem.SetActive(true);
             gem7Trigger.SetActive(true);    
             gem7UI.SetActive(true);
+        }
+        else
+        {
+            return;
         }
     }
 

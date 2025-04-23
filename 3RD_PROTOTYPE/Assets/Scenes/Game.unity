@@ -18403,6 +18403,7 @@ MonoBehaviour:
   rewardGem: {fileID: 1792811731}
   gem7Trigger: {fileID: 1307237699}
   gem7UI: {fileID: 256630826}
+  playerMovement: {fileID: 922658574}
 --- !u!1 &844669263 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -506090165987129455, guid: e0dfd7a1a71a5fc49b58d9a63dfaee5a,
@@ -19475,13 +19476,14 @@ MonoBehaviour:
   jumpKey: 32
   isPaused: 0
   pauseScreen: {fileID: 515397290}
-  gemPic1: {fileID: 0}
-  gemPic2: {fileID: 0}
-  gemPic3: {fileID: 0}
-  gemPic4: {fileID: 0}
-  gemPic5: {fileID: 0}
-  gemPic6: {fileID: 0}
-  gemPic7: {fileID: 0}
+  gemPic1: {fileID: 867950347}
+  gemPic2: {fileID: 1456835740}
+  gemPic3: {fileID: 377418114}
+  gemPic4: {fileID: 296118124}
+  gemPic5: {fileID: 1105810939}
+  gemPic6: {fileID: 1384115688}
+  gemPic7: {fileID: 256630826}
+  gotGem7: 0
   canDodge: 1
   dodgeLength: 20
   coinManager: {fileID: 835099445}
