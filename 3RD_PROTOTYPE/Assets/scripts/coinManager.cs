@@ -14,22 +14,28 @@ public class coinManager : MonoBehaviour
 
     public void Update()
     {
-        if (coin > 34.99 && playerMovement.gotGem7 == false)
-        {
-            rewardGem.SetActive(true);
-            gem7Trigger.SetActive(true);    
-            gem7UI.SetActive(true);
-        }
-        else
-        {
-            return;
-        }
+        
     }
 
     public void addCoin()
     {
         coin = coin + 1;
         coinText.text = coin.ToString();
+        CheckCoin();
+    }
+
+    public void CheckCoin()
+    {
+        if (coin > 34.99 && playerMovement.gotGem7 == false)
+        {
+            rewardGem.SetActive(true);
+            gem7Trigger.SetActive(true);
+            gem7UI.SetActive(true);
+        }
+        else
+        {
+            return;
+        }
     }
 
     public void subtractNut()

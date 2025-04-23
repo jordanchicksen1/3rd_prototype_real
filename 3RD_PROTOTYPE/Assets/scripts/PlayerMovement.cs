@@ -330,8 +330,9 @@ public class PlayerMovement : MonoBehaviour
         if ((other.tag == "Gem7"))
         {
             gotGem7 = true;
-            gemPic7.SetActive(false);
+            Destroy(gemPic7);
             Destroy(other.gameObject);
+            Debug.Log("should turn off picture");
         }
 
     }
