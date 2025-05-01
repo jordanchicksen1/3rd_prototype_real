@@ -28,6 +28,7 @@ TagManager:
   - Gem5
   - Gem6
   - Gem7
+  - Checkpoint1
   layers:
   - Default
   - TransparentFX
