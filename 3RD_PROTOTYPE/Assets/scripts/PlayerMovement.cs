@@ -74,6 +74,14 @@ public class PlayerMovement : MonoBehaviour
     public AudioClip gem;
     public AudioClip health;
 
+    //checkpoints
+    public bool checkpoint1 = false;
+    public GameObject checkpoint1Gem;
+    public bool checkpoint2 = false;
+    public GameObject checkpoint2Gem;
+    public bool checkpoint3 = false;
+    public GameObject checkpoint3Gem;
+
     //game end
     public GameObject levelEndScreen;
     public AudioClip celebrationSFX;
@@ -278,12 +286,47 @@ public class PlayerMovement : MonoBehaviour
             Destroy(other.gameObject);
         }
 
-        if(other.tag == "KillBox")
+        if(other.tag == "Checkpoint1")
+        {
+            checkpoint1 = true;
+            checkpoint1Gem.SetActive(true);
+            checkpoint2 = false;
+            checkpoint2Gem.SetActive(false);
+            checkpoint3 = false;
+            checkpoint3Gem.SetActive(false);
+        }
+
+        if (other.tag == "Checkpoint2")
+        {
+            checkpoint1 = false;
+            checkpoint1Gem.SetActive(false);
+            checkpoint2 = true; 
+            checkpoint2Gem.SetActive(true);
+            checkpoint3 = false;
+            checkpoint3Gem.SetActive(false);
+        }
+
+        if (other.tag == "Checkpoint3")
+        {
+            checkpoint1 = false;
+            checkpoint1Gem.SetActive(false);
+            checkpoint2 = false;
+            checkpoint2Gem.SetActive(false);
+            checkpoint3 = true;
+            checkpoint3Gem.SetActive(true);
+        }
+
+        if (other.tag == "KillBox" && checkpoint1 == false && checkpoint2 == false && checkpoint3 == false)
         {
             transform.position = new Vector3(457.3f, 551.1f, -473.3f);
         }
 
-        if(other.tag == "LevelEnd")
+        if (other.tag == "KillBox" && checkpoint1 == true && checkpoint2 == false && checkpoint3 == false)
+        {
+            transform.position = new Vector3(457.6f, 549f, -407f);
+        }
+
+        if (other.tag == "LevelEnd")
         {
             levelEndScreen.SetActive(true);
             sfx.clip = celebrationSFX;
