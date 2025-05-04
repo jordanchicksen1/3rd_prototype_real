@@ -82,6 +82,7 @@ public class PlayerMovement : MonoBehaviour
     public bool checkpoint3 = false;
     public GameObject checkpoint3Gem;
 
+    public GameObject checkpointTex;
     //game end
     public GameObject levelEndScreen;
     public AudioClip celebrationSFX;
@@ -294,6 +295,7 @@ public class PlayerMovement : MonoBehaviour
             checkpoint2Gem.SetActive(false);
             checkpoint3 = false;
             checkpoint3Gem.SetActive(false);
+            StartCoroutine(CheckpointSet());
         }
 
         if (other.tag == "Checkpoint2")
@@ -304,6 +306,7 @@ public class PlayerMovement : MonoBehaviour
             checkpoint2Gem.SetActive(true);
             checkpoint3 = false;
             checkpoint3Gem.SetActive(false);
+            StartCoroutine(CheckpointSet());
         }
 
         if (other.tag == "Checkpoint3")
@@ -314,16 +317,25 @@ public class PlayerMovement : MonoBehaviour
             checkpoint2Gem.SetActive(false);
             checkpoint3 = true;
             checkpoint3Gem.SetActive(true);
+            StartCoroutine(CheckpointSet());    
         }
 
         if (other.tag == "KillBox" && checkpoint1 == false && checkpoint2 == false && checkpoint3 == false)
         {
             transform.position = new Vector3(457.3f, 551.1f, -473.3f);
+            playerHealth.PlayerHit();
         }
 
         if (other.tag == "KillBox" && checkpoint1 == true && checkpoint2 == false && checkpoint3 == false)
         {
             transform.position = new Vector3(457.6f, 549f, -407f);
+            playerHealth.PlayerHit();
+        }
+
+        if (other.tag == "KillBox" && checkpoint2 == true && checkpoint1 == false && checkpoint3 == false)
+        {
+            transform.position = new Vector3(439.78f, 579.19f, -298.66f);
+            playerHealth.PlayerHit();
         }
 
         if (other.tag == "LevelEnd")
@@ -427,5 +439,21 @@ public class PlayerMovement : MonoBehaviour
         gotGemText.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         gotGemText.SetActive(false);
+    }
+
+    public IEnumerator CheckpointSet()
+    {
+        yield return new WaitForSeconds(0f);
+        checkpointTex.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        checkpointTex.SetActive(false);
+        yield return new WaitForSeconds(0.5f);
+        checkpointTex.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        checkpointTex.SetActive(false);
+        yield return new WaitForSeconds(0.5f);
+        checkpointTex.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        checkpointTex.SetActive(false);
     }
 }
