@@ -287,7 +287,7 @@ public class PlayerMovement : MonoBehaviour
             Destroy(other.gameObject);
         }
 
-        if(other.tag == "Checkpoint1")
+        if(other.tag == "Checkpoint1" && checkpoint1 == false)
         {
             checkpoint1 = true;
             checkpoint1Gem.SetActive(true);
@@ -298,7 +298,7 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(CheckpointSet());
         }
 
-        if (other.tag == "Checkpoint2")
+        if (other.tag == "Checkpoint2" && checkpoint2 == false)
         {
             checkpoint1 = false;
             checkpoint1Gem.SetActive(false);
@@ -309,7 +309,7 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(CheckpointSet());
         }
 
-        if (other.tag == "Checkpoint3")
+        if (other.tag == "Checkpoint3" && checkpoint3 == false)
         {
             checkpoint1 = false;
             checkpoint1Gem.SetActive(false);
@@ -324,18 +324,24 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.position = new Vector3(457.3f, 551.1f, -473.3f);
             playerHealth.PlayerHit();
+            sfx.clip = ouch;
+            sfx.Play();
         }
 
         if (other.tag == "KillBox" && checkpoint1 == true && checkpoint2 == false && checkpoint3 == false)
         {
             transform.position = new Vector3(457.6f, 549f, -407f);
             playerHealth.PlayerHit();
+            sfx.clip = ouch;
+            sfx.Play();
         }
 
         if (other.tag == "KillBox" && checkpoint2 == true && checkpoint1 == false && checkpoint3 == false)
         {
             transform.position = new Vector3(439.78f, 579.19f, -298.66f);
             playerHealth.PlayerHit();
+            sfx.clip = ouch;
+            sfx.Play();
         }
 
         if (other.tag == "LevelEnd")
