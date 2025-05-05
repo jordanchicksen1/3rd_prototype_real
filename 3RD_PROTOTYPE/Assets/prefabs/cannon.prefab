@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3771656931856333259}
   - component: {fileID: 8903276372030154274}
   - component: {fileID: 6578828624794057348}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: shooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2585811006395503287}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bulletPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 4192071458515558901}
   - component: {fileID: 4176116520375983054}
   - component: {fileID: 4219432220123636114}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: cannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,3 +260,4 @@ MonoBehaviour:
   spawnPoint: {fileID: 2585811006395503287}
   shootTime: 0
   bulletSpeed: 20
+  cannonSFX: {fileID: 0}
