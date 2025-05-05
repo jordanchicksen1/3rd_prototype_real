@@ -73,6 +73,10 @@ public class PlayerMovement : MonoBehaviour
     public AudioClip coin;
     public AudioClip gem;
     public AudioClip health;
+    
+    public AudioSource sfx2;
+    public AudioClip checkpointsfx;
+    //public AudioClip enemyDeath;
 
     //checkpoints
     public bool checkpoint1 = false;
@@ -296,6 +300,8 @@ public class PlayerMovement : MonoBehaviour
             checkpoint3 = false;
             checkpoint3Gem.SetActive(false);
             StartCoroutine(CheckpointSet());
+            sfx2.clip = checkpointsfx;
+            sfx2.Play();
         }
 
         if (other.tag == "Checkpoint2" && checkpoint2 == false)
@@ -307,6 +313,9 @@ public class PlayerMovement : MonoBehaviour
             checkpoint3 = false;
             checkpoint3Gem.SetActive(false);
             StartCoroutine(CheckpointSet());
+            
+            sfx2.clip = checkpointsfx;
+            sfx2.Play();
         }
 
         if (other.tag == "Checkpoint3" && checkpoint3 == false)
@@ -317,7 +326,9 @@ public class PlayerMovement : MonoBehaviour
             checkpoint2Gem.SetActive(false);
             checkpoint3 = true;
             checkpoint3Gem.SetActive(true);
-            StartCoroutine(CheckpointSet());    
+            StartCoroutine(CheckpointSet());
+            sfx2.clip = checkpointsfx;
+            sfx2.Play();
         }
 
         if (other.tag == "KillBox" && checkpoint1 == false && checkpoint2 == false && checkpoint3 == false)
