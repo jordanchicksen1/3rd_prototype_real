@@ -12,6 +12,8 @@ public class coinManager : MonoBehaviour
     public GameObject gem7UI;
     public PlayerMovement playerMovement;
 
+    public GameObject coinsText;
+
     public void Update()
     {
         
@@ -31,6 +33,7 @@ public class coinManager : MonoBehaviour
             rewardGem.SetActive(true);
             gem7Trigger.SetActive(true);
             gem7UI.SetActive(true);
+            StartCoroutine(CoinSurprise());
         }
         else
         {
@@ -42,5 +45,13 @@ public class coinManager : MonoBehaviour
     {
         coin = coin - 1;
         coinText.text = coin.ToString();
+    }
+
+    public IEnumerator CoinSurprise()
+    {
+        yield return new WaitForSeconds(0f);
+        coinsText.SetActive(true);
+        yield return new WaitForSeconds(5f);
+        coinsText.SetActive(false);
     }
 }

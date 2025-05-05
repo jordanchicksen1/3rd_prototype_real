@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.ShaderGraph;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -87,6 +86,9 @@ public class PlayerMovement : MonoBehaviour
     public GameObject checkpoint3Gem;
 
     public GameObject checkpointTex;
+
+   public GameObject coinSurpriseText;
+
     //game end
     public GameObject levelEndScreen;
     public AudioClip celebrationSFX;
@@ -406,6 +408,7 @@ public class PlayerMovement : MonoBehaviour
             gotGem7 = true;
             Destroy(gemPic7);
             Destroy(other.gameObject);
+            Destroy(coinSurpriseText);
             Debug.Log("should turn off picture");
         }
 
