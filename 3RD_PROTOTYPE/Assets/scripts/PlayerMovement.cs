@@ -339,6 +339,7 @@ public class PlayerMovement : MonoBehaviour
             playerHealth.PlayerHit();
             sfx.clip = ouch;
             sfx.Play();
+            hitParticle.Play();
         }
 
         if (other.tag == "KillBox" && checkpoint1 == true && checkpoint2 == false && checkpoint3 == false)
@@ -347,6 +348,7 @@ public class PlayerMovement : MonoBehaviour
             playerHealth.PlayerHit();
             sfx.clip = ouch;
             sfx.Play();
+            hitParticle.Play();
         }
 
         if (other.tag == "KillBox" && checkpoint2 == true && checkpoint1 == false && checkpoint3 == false)
@@ -355,6 +357,7 @@ public class PlayerMovement : MonoBehaviour
             playerHealth.PlayerHit();
             sfx.clip = ouch;
             sfx.Play();
+            hitParticle.Play();
         }
 
         if (other.tag == "LevelEnd")

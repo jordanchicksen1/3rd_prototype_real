@@ -75207,6 +75207,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3481857606612129503, guid: 4de01d57188c98d4ba4fea3bbe11942c,
         type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3481857606612129503, guid: 4de01d57188c98d4ba4fea3bbe11942c,
+        type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -93193,6 +93198,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3481857606612129503, guid: 4de01d57188c98d4ba4fea3bbe11942c,
         type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3481857606612129503, guid: 4de01d57188c98d4ba4fea3bbe11942c,
+        type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -94286,7 +94296,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 684870193383841768}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: gateMechanism (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94592,6 +94602,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: gateMechanism
+      objectReference: {fileID: 0}
+    - target: {fileID: 3481857606612129503, guid: 4de01d57188c98d4ba4fea3bbe11942c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3481857606612129503, guid: 4de01d57188c98d4ba4fea3bbe11942c,
         type: 3}
