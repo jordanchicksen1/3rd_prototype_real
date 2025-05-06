@@ -36951,6 +36951,8 @@ MonoBehaviour:
   gem7UI: {fileID: 256630826}
   playerMovement: {fileID: 922658574}
   coinsText: {fileID: 701589665}
+  sfx2: {fileID: 437549426}
+  coinSurpriseSFX: {fileID: 8300000, guid: 3b5c4c8746802154c8f548d3194f3a9f, type: 3}
 --- !u!1001 &835826409
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53437,7 +53439,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '35 coins collected!
+  m_text: 'All coins collected!
 
     Check your map for a surprise!'
   m_isRightToLeft: 0

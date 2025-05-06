@@ -14,6 +14,9 @@ public class coinManager : MonoBehaviour
 
     public GameObject coinsText;
 
+    public AudioSource sfx2;
+    public AudioClip coinSurpriseSFX;
+
     public void Update()
     {
         
@@ -28,12 +31,14 @@ public class coinManager : MonoBehaviour
 
     public void CheckCoin()
     {
-        if (coin > 34.99 && playerMovement.gotGem7 == false)
+        if (coin > 41.99 && playerMovement.gotGem7 == false)
         {
             rewardGem.SetActive(true);
             gem7Trigger.SetActive(true);
             gem7UI.SetActive(true);
             StartCoroutine(CoinSurprise());
+            sfx2.clip = coinSurpriseSFX;
+            sfx2.Play();
         }
         else
         {
