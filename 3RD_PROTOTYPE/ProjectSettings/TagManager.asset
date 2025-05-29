@@ -30,6 +30,7 @@ TagManager:
   - Gem7
   - Checkpoint1
   - Checkpoint2
+  - RedCoin
   layers:
   - Default
   - TransparentFX
