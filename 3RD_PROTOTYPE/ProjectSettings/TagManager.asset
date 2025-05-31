@@ -33,6 +33,7 @@ TagManager:
   - RedCoin
   - TimerButtonTrigger
   - GateDestroyer
+  - Pay
   layers:
   - Default
   - TransparentFX
