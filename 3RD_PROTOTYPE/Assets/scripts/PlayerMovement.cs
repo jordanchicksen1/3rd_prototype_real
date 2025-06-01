@@ -93,6 +93,9 @@ public class PlayerMovement : MonoBehaviour
     public GameObject levelEndScreen;
     public AudioClip celebrationSFX;
 
+    //shop stuff
+    public GameObject shop1Panel;
+
     private void OnEnable()
     {
 
@@ -415,13 +418,24 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("should turn off picture");
         }
 
-    }
-
-    public void OnTriggerStay(Collider other)
-    {
         if (other.tag == "ShopTrigger1")
         {
             Debug.Log("in shop");
+            shop1Panel.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "ShopTrigger1")
+        {
+            Debug.Log("out of shop");
+            shop1Panel.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
     }
 
