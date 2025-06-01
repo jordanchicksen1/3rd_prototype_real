@@ -417,6 +417,14 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    public void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "ShopTrigger1")
+        {
+            Debug.Log("in shop");
+        }
+    }
+
     public void OnCollisionEnter(Collision other)
     {
         if(other.gameObject.CompareTag("Crawler"))
