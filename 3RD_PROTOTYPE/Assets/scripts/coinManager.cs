@@ -29,6 +29,12 @@ public class coinManager : MonoBehaviour
         CheckCoin();
     }
 
+    public void subtractCoin() 
+    {
+        coin = coin - 5;
+        coinText.text = coin.ToString();
+    }
+
     public void CheckCoin()
     {
         if (coin > 41.99 && playerMovement.gotGem7 == false)
