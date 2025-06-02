@@ -58,6 +58,19 @@ public class coinManager : MonoBehaviour
         coinText.text = coin.ToString();
     }
 
+    //shop 1 stuff
+    public void boughtItemOne()
+    {
+        coin = coin - 25;
+        coinText.text = coin.ToString();
+    }
+
+    public void boughtItemTwo()
+    {
+        coin = coin - 5;
+        coinText.text = coin.ToString();
+    }
+
     public IEnumerator CoinSurprise()
     {
         yield return new WaitForSeconds(0f);
