@@ -35,6 +35,7 @@ TagManager:
   - GateDestroyer
   - Pay
   - ShopTrigger1
+  - ShopTrigger2
   layers:
   - Default
   - TransparentFX

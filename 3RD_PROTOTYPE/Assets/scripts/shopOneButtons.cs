@@ -11,6 +11,8 @@ public class shopOneButtons : MonoBehaviour
 
     public GameObject hint;
     public GameObject grassyHat;
+    public GameObject hardHat;
+    public GameObject beanie;
     public GameObject grassyHatDisplay;
     public GameObject gemDisplay;
 
@@ -124,6 +126,8 @@ public class shopOneButtons : MonoBehaviour
         {
             coinManager.boughtItemFour();
             grassyHat.SetActive(true);
+            beanie.SetActive(false);
+            hardHat.SetActive(false);
             grassyHatDisplay.SetActive(false);
             buyButtonFour.SetActive(false);
             StartCoroutine(ItemPurchased());

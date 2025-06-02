@@ -95,6 +95,7 @@ public class PlayerMovement : MonoBehaviour
 
     //shop stuff
     public GameObject shop1Panel;
+    public GameObject shop2Panel;
 
     private void OnEnable()
     {
@@ -426,6 +427,13 @@ public class PlayerMovement : MonoBehaviour
             Cursor.visible = true;
         }
 
+        if (other.tag == "ShopTrigger2")
+        {
+            Debug.Log("in shop");
+            shop2Panel.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
     }
 
     public void OnTriggerExit(Collider other)
@@ -434,6 +442,14 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.Log("out of shop");
             shop1Panel.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+
+        if (other.tag == "ShopTrigger2")
+        {
+            Debug.Log("out of shop");
+            shop2Panel.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
