@@ -423,6 +423,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.Log("in shop");
             shop1Panel.SetActive(true);
+            shop2Panel.SetActive(false);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
@@ -431,6 +432,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.Log("in shop");
             shop2Panel.SetActive(true);
+            shop1Panel.SetActive(false);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
