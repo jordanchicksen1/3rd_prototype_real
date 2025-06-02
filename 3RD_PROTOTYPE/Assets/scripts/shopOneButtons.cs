@@ -11,6 +11,8 @@ public class shopOneButtons : MonoBehaviour
 
     public GameObject hint;
     public GameObject grassyHat;
+    public GameObject grassyHatDisplay;
+    public GameObject gemDisplay;
 
     public GameObject buyButtonOne;
     public GameObject buyButtonFour;
@@ -31,6 +33,7 @@ public class shopOneButtons : MonoBehaviour
         {
             coinManager.boughtItemOne();
             gemManager.addGem();
+            gemDisplay.SetActive(false);
             buyButtonOne.SetActive(false);
             StartCoroutine(ItemPurchased());
             tooPoor.SetActive(false);
@@ -81,15 +84,64 @@ public class shopOneButtons : MonoBehaviour
             sfx.Play();
         }
 
+        if (playerHealth.currentHealth > 4.99 && coinManager.coin < 4.99 && purchaseGoneThrough == false)
+        {
+            StartCoroutine(HealthFull());
+            sfx.clip = purchaseDenied;
+            itemPurchased.SetActive(false);
+            tooPoor.SetActive(false);
+            sfx.Play();
+        }
+
 
     }
     public void buyItemThree() 
-    { 
+    {
+        if (coinManager.coin > 4.99 && purchaseGoneThrough == false)
+        {
+            coinManager.boughtItemThree();
+            hint.SetActive(true);
+            StartCoroutine(ItemPurchased());
+            tooPoor.SetActive(false);
+            healthFull.SetActive(false);
+            sfx.clip = purchaseSfx;
+            sfx.Play();
+            purchaseGoneThrough = true;
+        }
 
+        if (coinManager.coin < 4.99 && purchaseGoneThrough == false)
+        {
+            StartCoroutine(TooPoor());
+            sfx.clip = purchaseDenied;
+            itemPurchased.SetActive(false);
+            healthFull.SetActive(false);
+            sfx.Play();
+        }
     }
     public void buyItemFour() 
-    { 
-    
+    {
+        if (coinManager.coin > 9.99 && purchaseGoneThrough == false)
+        {
+            coinManager.boughtItemFour();
+            grassyHat.SetActive(true);
+            grassyHatDisplay.SetActive(false);
+            buyButtonFour.SetActive(false);
+            StartCoroutine(ItemPurchased());
+            tooPoor.SetActive(false);
+            healthFull.SetActive(false);
+            sfx.clip = purchaseSfx;
+            sfx.Play();
+            purchaseGoneThrough = true;
+        }
+
+        if (coinManager.coin < 9.99 && purchaseGoneThrough == false)
+        {
+            StartCoroutine(TooPoor());
+            sfx.clip = purchaseDenied;
+            itemPurchased.SetActive(false);
+            healthFull.SetActive(false);
+            sfx.Play();
+        }
     }
 
     public IEnumerator ItemPurchased()
