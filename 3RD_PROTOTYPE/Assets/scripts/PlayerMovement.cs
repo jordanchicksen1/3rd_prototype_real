@@ -99,10 +99,23 @@ public class PlayerMovement : MonoBehaviour
     public GameObject shop2Panel;
     public GameObject shop3Panel;
 
-    //pickaxe stuff
+    //pickaxe and mining stuff
     public bool hasPickaxe = false;
+    public GameObject pickaxe;
     public GameObject gotPickaxeText;
     public ParticleSystem gotPickaxeParticle;
+    public GameObject gemPieceMeter;
+    public GameObject mineText;
+    public bool readyToMine = false;
+    public GameObject needTool;
+
+    //gem pieces
+    public Transform playerNose;
+    public float mineRange = 1f;
+    public gemPieceMeter gemPieceMeterScript;
+
+
+
 
     private void OnEnable()
     {
@@ -124,6 +137,10 @@ public class PlayerMovement : MonoBehaviour
 
         //Subscribe to the groundPound
         playerInput.Player.GroundPound.performed += ctx => GroundPound();
+
+        //Subscribe to the Mine
+        playerInput.Player.Mine.performed += ctx => Mine();
+
     }
 
     public void Pause()
@@ -176,6 +193,45 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("should ground pound");
     }
 
+    public void Mine()
+    {
+        Ray ray = new Ray(playerNose.position, playerNose.forward);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, mineRange))
+        {
+            if (hit.collider.CompareTag("GemPiece") && hasPickaxe == true)
+            {
+                Destroy(hit.collider.gameObject, 0.5f);
+                StartCoroutine(PickaxeHit());
+                gemPieceMeterScript.GotGemPiece();
+            }
+
+            if (hit.collider.CompareTag("GemPiece") && hasPickaxe == false)
+            {
+                StartCoroutine(NeedTool());
+            }
+        }
+    }
+
+    public void checkForGemPiece()
+    {
+        Ray ray = new Ray(playerNose.position, playerNose.forward);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, mineRange))
+        {
+            if (hit.collider.CompareTag("GemPiece"))
+            {
+                mineText.SetActive(true);
+            }
+        }
+
+        else
+        {
+            mineText.SetActive(false);
+        }
+    }
 
     private void Start()
     {
@@ -210,6 +266,8 @@ public class PlayerMovement : MonoBehaviour
             Invoke(nameof(ResetJump), jumpCooldown);
 
         }
+
+        checkForGemPiece();
     }
 
     private void FixedUpdate()
@@ -463,8 +521,17 @@ public class PlayerMovement : MonoBehaviour
             hasPickaxe = true;
             StartCoroutine(GotPickaxe());
             gotPickaxeParticle.Play();
+            gemPieceMeter.SetActive(true);
+        }
+
+        if (other.tag == "GemPiece")
+        {
+            readyToMine = true;
+            mineText.SetActive(true);
         }
     }
+
+    
 
     public void OnTriggerExit(Collider other)
     {
@@ -490,6 +557,12 @@ public class PlayerMovement : MonoBehaviour
             shop3Panel.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+        }
+
+        if (other.tag == "GemPiece")
+        {
+            readyToMine = false;
+            mineText.SetActive(false);
         }
     }
 
@@ -570,5 +643,21 @@ public class PlayerMovement : MonoBehaviour
         gotPickaxeText.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         gotPickaxeText.SetActive(false);
+    }
+
+    public IEnumerator NeedTool()
+    {
+        yield return new WaitForSeconds(0f);
+        needTool.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        needTool.SetActive(false);
+    }
+
+    public IEnumerator PickaxeHit()
+    {
+        yield return new WaitForSeconds(0f);
+        pickaxe.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        pickaxe.SetActive(false);
     }
 }
