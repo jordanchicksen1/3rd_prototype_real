@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -97,6 +98,11 @@ public class PlayerMovement : MonoBehaviour
     public GameObject shop1Panel;
     public GameObject shop2Panel;
     public GameObject shop3Panel;
+
+    //pickaxe stuff
+    public bool hasPickaxe = false;
+    public GameObject gotPickaxeText;
+    public ParticleSystem gotPickaxeParticle;
 
     private void OnEnable()
     {
@@ -449,6 +455,15 @@ public class PlayerMovement : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
+
+        if(other.tag == "Pickaxe")
+        {
+            Debug.Log("got pickaxe");
+            Destroy(other.gameObject);
+            hasPickaxe = true;
+            StartCoroutine(GotPickaxe());
+            gotPickaxeParticle.Play();
+        }
     }
 
     public void OnTriggerExit(Collider other)
@@ -539,5 +554,21 @@ public class PlayerMovement : MonoBehaviour
         checkpointTex.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         checkpointTex.SetActive(false);
+    }
+
+    public IEnumerator GotPickaxe()
+    {
+        yield return new WaitForSeconds(0f);
+        gotPickaxeText.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        gotPickaxeText.SetActive(false);
+        yield return new WaitForSeconds(0.5f);
+        gotPickaxeText.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        gotPickaxeText.SetActive(false);
+        yield return new WaitForSeconds(0.5f);
+        gotPickaxeText.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        gotPickaxeText.SetActive(false);
     }
 }
