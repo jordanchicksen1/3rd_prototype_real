@@ -37,6 +37,7 @@ TagManager:
   - ShopTrigger1
   - ShopTrigger2
   - ShopTrigger3
+  - Pickaxe
   layers:
   - Default
   - TransparentFX
