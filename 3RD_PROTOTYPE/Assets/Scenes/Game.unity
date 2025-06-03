@@ -8582,8 +8582,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -30.727995, y: 45.006016}
-  m_SizeDelta: {x: 177.32419, y: 25.89256}
+  m_AnchoredPosition: {x: -29.043442, y: 45.006016}
+  m_SizeDelta: {x: 193.26004, y: 25.89256}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &171169709
 MonoBehaviour:
@@ -17119,6 +17119,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1163727992}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &336833309 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7450035159944207896, guid: 0299af483062b2b48b7fedc9b908b649,
+    type: 3}
+  m_PrefabInstance: {fileID: 562603945}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &336833310 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7793487045322949794, guid: 0299af483062b2b48b7fedc9b908b649,
@@ -18874,8 +18880,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 877884488}
-        m_TargetAssemblyTypeName: shopTwoManager, Assembly-CSharp
+      - m_Target: {fileID: 1447555060}
+        m_TargetAssemblyTypeName: shopThreeManager, Assembly-CSharp
         m_MethodName: buyItemOne
         m_Mode: 1
         m_Arguments:
@@ -35774,8 +35780,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -30.86, y: 44.858383}
-  m_SizeDelta: {x: 173.22208, y: 26.477}
+  m_AnchoredPosition: {x: -28.825823, y: 44.858383}
+  m_SizeDelta: {x: 192.4654, y: 26.477}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &669413528
 MonoBehaviour:
@@ -35797,7 +35803,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Maple Grove Shop
+  m_text: Shallow Grotto Shop
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e04f5eaecf7e28b4d8451e89e8d633d9, type: 2}
   m_sharedMaterial: {fileID: -8821560304984848206, guid: e04f5eaecf7e28b4d8451e89e8d633d9,
@@ -43143,6 +43149,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 791209305}
   m_CullTransparentMesh: 1
+--- !u!1 &793678150 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6d23aa4adda38d64fb9e2f63a09ca058,
+    type: 3}
+  m_PrefabInstance: {fileID: 1407386515}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &796383365 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6d777950c675d054da5da7774aecfdbf,
@@ -76378,6 +76390,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1447555059}
+  - component: {fileID: 1447555060}
   m_Layer: 0
   m_Name: shopThreeManager
   m_TagString: Untagged
@@ -76400,6 +76413,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1945351948}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1447555060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447555058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cf347cc5c5f0bc47b922348b6260e83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinManager: {fileID: 835099445}
+  gemManager: {fileID: 1949012156}
+  playerHealth: {fileID: 1592200908}
+  hint3: {fileID: 1568242836}
+  grassyHat: {fileID: 1533718669}
+  hardHat: {fileID: 20643335}
+  beanie: {fileID: 27955039}
+  hardHatDisplay: {fileID: 793678150}
+  gemDisplay: {fileID: 336833309}
+  buyButtonOne: {fileID: 363982852}
+  buyButtonFour: {fileID: 1679148249}
+  itemPurchased3: {fileID: 1143812665}
+  tooPoor3: {fileID: 739510075}
+  healthFull3: {fileID: 242483956}
+  sfx: {fileID: 437549426}
+  purchaseSfx: {fileID: 8300000, guid: f609099aad3dea4409ea3ed6a7149c9d, type: 3}
+  purchaseDenied: {fileID: 8300000, guid: e756fb4c6e48eac4896dcf7af661409f, type: 3}
+  purchaseGoneThrough: 0
 --- !u!1001 &1449707744
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -81687,7 +81730,7 @@ GameObject:
   - component: {fileID: 1568242839}
   - component: {fileID: 1568242838}
   m_Layer: 5
-  m_Name: hint2
+  m_Name: hint3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87330,8 +87373,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 877884488}
-        m_TargetAssemblyTypeName: shopTwoManager, Assembly-CSharp
+      - m_Target: {fileID: 1447555060}
+        m_TargetAssemblyTypeName: shopThreeManager, Assembly-CSharp
         m_MethodName: buyItemFour
         m_Mode: 1
         m_Arguments:
@@ -89837,8 +89880,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 877884488}
-        m_TargetAssemblyTypeName: shopTwoManager, Assembly-CSharp
+      - m_Target: {fileID: 1447555060}
+        m_TargetAssemblyTypeName: shopThreeManager, Assembly-CSharp
         m_MethodName: buyItemTwo
         m_Mode: 1
         m_Arguments:
@@ -103715,8 +103758,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 877884488}
-        m_TargetAssemblyTypeName: shopTwoManager, Assembly-CSharp
+      - m_Target: {fileID: 1447555060}
+        m_TargetAssemblyTypeName: shopThreeManager, Assembly-CSharp
         m_MethodName: buyItemThree
         m_Mode: 1
         m_Arguments:
@@ -109264,7 +109307,7 @@ GameObject:
   - component: {fileID: 2059002168}
   m_Layer: 0
   m_Name: shopTrigger
-  m_TagString: ShopTrigger2
+  m_TagString: ShopTrigger3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116615,6 +116658,11 @@ PrefabInstance:
       propertyPath: shop2Panel
       value: 
       objectReference: {fileID: 1647545280}
+    - target: {fileID: 3532676236924839351, guid: 7902fb8460e359f4f89088ea30d564b5,
+        type: 3}
+      propertyPath: shop3Panel
+      value: 
+      objectReference: {fileID: 1212121592}
     - target: {fileID: 3532676236924839351, guid: 7902fb8460e359f4f89088ea30d564b5,
         type: 3}
       propertyPath: coinManager

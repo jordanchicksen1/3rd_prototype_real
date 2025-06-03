@@ -36,6 +36,7 @@ TagManager:
   - Pay
   - ShopTrigger1
   - ShopTrigger2
+  - ShopTrigger3
   layers:
   - Default
   - TransparentFX
