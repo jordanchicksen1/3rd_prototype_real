@@ -38,6 +38,7 @@ TagManager:
   - ShopTrigger2
   - ShopTrigger3
   - Pickaxe
+  - GemPiece
   layers:
   - Default
   - TransparentFX
