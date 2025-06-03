@@ -113,7 +113,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform playerNose;
     public float mineRange = 1f;
     public gemPieceMeter gemPieceMeterScript;
-
+    public AudioClip gemDrop;
 
 
 
@@ -205,6 +205,8 @@ public class PlayerMovement : MonoBehaviour
                 Destroy(hit.collider.gameObject, 0.5f);
                 StartCoroutine(PickaxeHit());
                 gemPieceMeterScript.GotGemPiece();
+                sfx2.clip = gemDrop;
+                sfx2.Play();
             }
 
             if (hit.collider.CompareTag("GemPiece") && hasPickaxe == false)

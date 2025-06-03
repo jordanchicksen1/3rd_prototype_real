@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -12,6 +13,12 @@ public class gemPieceMeter : MonoBehaviour
 
     public gemManager gemManager;
 
+    public GameObject gotGemText;
+
+    public ParticleSystem gotGemParticle;
+
+    public AudioSource sfx;
+    public AudioClip gotGem;
 
 
     public void Start()
@@ -25,6 +32,10 @@ public class gemPieceMeter : MonoBehaviour
         if(currentGemPiece > 4.99f)
         {
             GemFull();
+            StartCoroutine(GotGem());
+            StartCoroutine(GemParticle());
+            sfx.clip = gotGem;
+            sfx.Play();
         }
     }
 
@@ -37,8 +48,7 @@ public class gemPieceMeter : MonoBehaviour
 
     public void updateGemPieceBar()
     {
-        float targetFillAmount = currentGemPiece / maxGemPiece;
-        gemPieceBar.fillAmount = targetFillAmount;
+        StartCoroutine(UpdateGemBar());
     }
 
     [ContextMenu("GemFull")]
@@ -57,5 +67,40 @@ public class gemPieceMeter : MonoBehaviour
         updateGemPieceBar();
         
 
+    }
+
+    public IEnumerator GotGem()
+    {
+        yield return new WaitForSeconds(0f);
+        gotGemText.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        gotGemText.SetActive(false);
+        yield return new WaitForSeconds(0.5f);
+        gotGemText.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        gotGemText.SetActive(false);
+        yield return new WaitForSeconds(0.5f);
+        gotGemText.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        gotGemText.SetActive(false);
+    }
+
+    public IEnumerator UpdateGemBar()
+    {
+        yield return new WaitForSeconds(0.5f);
+        float targetFillAmount = currentGemPiece / maxGemPiece;
+        gemPieceBar.fillAmount = targetFillAmount;
+    }
+
+    public IEnumerator GemParticle()
+    {
+        yield return new WaitForSeconds(0.5f);
+        gotGemParticle.Play();
+    }
+
+    public IEnumerator GemPieceTransfer()
+    {
+        yield return new WaitForSeconds(0.5f);
+        
     }
 }
