@@ -116,6 +116,16 @@ public class PlayerMovement : MonoBehaviour
     public AudioClip gemDrop;
 
 
+    //grass red coins
+    public bool grassR1 = false;
+    public bool grassR2 = false;
+    public bool grassR3 = false;
+    public bool grassR4 = false;
+    public bool grassR5 = false;
+    public bool grassR6 = false;
+    public bool grassR7 = false;
+    public bool grassR8 = false;
+
 
     private void OnEnable()
     {
@@ -530,6 +540,95 @@ public class PlayerMovement : MonoBehaviour
         {
             readyToMine = true;
             mineText.SetActive(true);
+        }
+
+        //grass level red coins
+        if(other.tag == "GrassRedOne")
+        {
+            Destroy(other.gameObject);
+            coinManager.addCoin();
+            Debug.Log("collected red coin ");
+            coinParticle.Play();
+            sfx.clip = coin;
+            sfx.Play();
+            grassR1 = true;
+        }
+
+        if (other.tag == "GrassRedTwo")
+        {
+            Destroy(other.gameObject);
+            coinManager.addCoin();
+            Debug.Log("collected red coin ");
+            coinParticle.Play();
+            sfx.clip = coin;
+            sfx.Play();
+            grassR2 = true;
+        }
+
+        if (other.tag == "GrassRedThree")
+        {
+            Destroy(other.gameObject);
+            coinManager.addCoin();
+            Debug.Log("collected red coin ");
+            coinParticle.Play();
+            sfx.clip = coin;
+            sfx.Play();
+            grassR3 = true;
+        }
+
+        if (other.tag == "GrassRedFour")
+        {
+            Destroy(other.gameObject);
+            coinManager.addCoin();
+            Debug.Log("collected coin ");
+            coinParticle.Play();
+            sfx.clip = coin;
+            sfx.Play();
+            grassR4 = true;
+        }
+
+        if (other.tag == "GrassRedFive")
+        {
+            Destroy(other.gameObject);
+            coinManager.addCoin();
+            Debug.Log("collected coin ");
+            coinParticle.Play();
+            sfx.clip = coin;
+            sfx.Play();
+            grassR5 = true;
+        }
+
+        if (other.tag == "GrassRedSix")
+        {
+            Destroy(other.gameObject);
+            coinManager.addCoin();
+            Debug.Log("collected coin ");
+            coinParticle.Play();
+            sfx.clip = coin;
+            sfx.Play();
+            grassR6 = true;
+        }
+
+        if (other.tag == "GrassRedSeven")
+        {
+            Destroy(other.gameObject);
+            coinManager.addCoin();
+            Debug.Log("collected coin ");
+            coinParticle.Play();
+            sfx.clip = coin;
+            sfx.Play();
+            grassR7 = true;
+        }
+
+        if (other.tag == "GrassRedEight")
+        {
+            Destroy(other.gameObject);
+            coinManager.addCoin();
+            Debug.Log("collected coin ");
+            coinParticle.Play();
+            sfx.clip = coin;
+            sfx.Play();
+            grassR8 = true;
         }
     }
 

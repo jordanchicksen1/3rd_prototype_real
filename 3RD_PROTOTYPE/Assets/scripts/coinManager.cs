@@ -19,7 +19,7 @@ public class coinManager : MonoBehaviour
 
     public void Update()
     {
-        
+        CheckCoin();
     }
 
     public void addCoin()
@@ -37,7 +37,7 @@ public class coinManager : MonoBehaviour
 
     public void CheckCoin()
     {
-        if (coin > 41.99 && playerMovement.gotGem7 == false)
+        if (playerMovement.grassR1 == true && playerMovement.grassR2 == true && playerMovement.grassR3 == true && playerMovement.grassR4 == true && playerMovement.grassR5 == true && playerMovement.grassR6 == true && playerMovement.grassR7 == true && playerMovement.grassR8 == true)
         {
             rewardGem.SetActive(true);
             gem7Trigger.SetActive(true);
@@ -45,6 +45,7 @@ public class coinManager : MonoBehaviour
             StartCoroutine(CoinSurprise());
             sfx2.clip = coinSurpriseSFX;
             sfx2.Play();
+            playerMovement.grassR1 = false;
         }
         else
         {

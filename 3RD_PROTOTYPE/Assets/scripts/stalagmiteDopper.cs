@@ -32,7 +32,7 @@ public class stalagmiteDopper : MonoBehaviour
         yield return new WaitForSeconds(0f);
         stalagmiteParticles.Play();
         sfx.clip = stalagmiteSFX;
-        sfx.Play();
+        sfx.Play(); 
         yield return new WaitForSeconds(0.5f);
         rb.isKinematic = false;
         

@@ -42,6 +42,14 @@ TagManager:
   - RightRotator
   - LeftRotator
   - Stalagmite
+  - GrassRedOne
+  - GrassRedTwo
+  - GrassRedThree
+  - GrassRedFour
+  - GrassRedFive
+  - GrassRedSix
+  - GrassRedSeven
+  - GrassRedEight
   layers:
   - Default
   - TransparentFX
