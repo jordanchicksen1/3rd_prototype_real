@@ -39,6 +39,9 @@ TagManager:
   - ShopTrigger3
   - Pickaxe
   - GemPiece
+  - RightRotator
+  - LeftRotator
+  - Stalagmite
   layers:
   - Default
   - TransparentFX

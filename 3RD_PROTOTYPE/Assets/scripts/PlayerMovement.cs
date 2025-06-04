@@ -588,7 +588,16 @@ public class PlayerMovement : MonoBehaviour
             sfx.Play();
         }
 
-        
+        if (other.gameObject.CompareTag("Stalagmite"))
+        {
+            Debug.Log("hit player");
+            playerHealth.PlayerHit();
+            Destroy(other.gameObject);
+            hitParticle.Play();
+            sfx.clip = ouch;
+            sfx.Play();
+        }
+
     }
     public IEnumerator DodgeReset()
     {
