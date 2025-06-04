@@ -9,6 +9,10 @@ public class stalagmiteDopper : MonoBehaviour
     public ParticleSystem stalagmiteParticles;
     public float destroyTime = 1.5f;
 
+    public AudioSource sfx;
+    public AudioClip stalagmiteSFX;
+    public AudioClip rockFallSFX;
+
     void Start()
     {
        
@@ -27,8 +31,11 @@ public class stalagmiteDopper : MonoBehaviour
     {
         yield return new WaitForSeconds(0f);
         stalagmiteParticles.Play();
+        sfx.clip = stalagmiteSFX;
+        sfx.Play();
         yield return new WaitForSeconds(0.5f);
         rb.isKinematic = false;
+        
         Destroy(stalagmite, destroyTime);
         
     }
