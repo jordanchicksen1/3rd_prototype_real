@@ -50,6 +50,7 @@ TagManager:
   - GrassRedSix
   - GrassRedSeven
   - GrassRedEight
+  - LeafCoin
   layers:
   - Default
   - TransparentFX
