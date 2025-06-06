@@ -55,6 +55,7 @@ TagManager:
   - LeafRedCoin
   - LeafRedCoin2
   - LeafRedCoin3
+  - HatStand
   layers:
   - Default
   - TransparentFX

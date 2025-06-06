@@ -29,6 +29,7 @@ public class shopTwoManager : MonoBehaviour
 
     public bool purchaseGoneThrough = false;
 
+    public hatStandMenu hatStandMenu;
     public void buyItemOne()
     {
         if (coinManager.coin > 24.99 && purchaseGoneThrough == false)
@@ -136,6 +137,7 @@ public class shopTwoManager : MonoBehaviour
             sfx.clip = purchaseSfx;
             sfx.Play();
             purchaseGoneThrough = true;
+            hatStandMenu.boughtBeanie();
         }
 
         if (coinManager.coin < 9.99 && purchaseGoneThrough == false)

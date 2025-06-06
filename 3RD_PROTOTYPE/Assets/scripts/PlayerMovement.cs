@@ -100,6 +100,10 @@ public class PlayerMovement : MonoBehaviour
     public GameObject shop2Panel;
     public GameObject shop3Panel;
 
+    //hat stand stuff
+    public GameObject hatStandPanel;
+   
+
     //pickaxe and mining stuff
     public bool hasPickaxe = false;
     public GameObject pickaxe;
@@ -726,6 +730,13 @@ public class PlayerMovement : MonoBehaviour
             sfx.Play();
             grassR8 = true;
         }
+
+        if((other.tag == "HatStand"))
+        {
+            hatStandPanel.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
     }
 
     
@@ -760,6 +771,13 @@ public class PlayerMovement : MonoBehaviour
         {
             readyToMine = false;
             mineText.SetActive(false);
+        }
+
+        if(other.tag == "HatStand")
+        {
+            hatStandPanel.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
     }
 
