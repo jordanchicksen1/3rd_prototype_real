@@ -52,6 +52,9 @@ TagManager:
   - GrassRedEight
   - LeafCoin
   - Leaf5Coin
+  - LeafRedCoin
+  - LeafRedCoin2
+  - LeafRedCoin3
   layers:
   - Default
   - TransparentFX

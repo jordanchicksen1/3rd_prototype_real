@@ -66,6 +66,7 @@ public class PlayerMovement : MonoBehaviour
     public ParticleSystem hitParticle;
     public ParticleSystem heartParticle;
     public ParticleSystem gemParticle;
+    public ParticleSystem redCoinParticle;
 
     //sound effects
     public AudioSource sfx;
@@ -119,6 +120,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject searchText;
     public GameObject foundCoinText;
     public GameObject found5CoinsText;
+    public GameObject foundRedCoinText;
 
     //grass red coins
     public bool grassR1 = false;
@@ -129,6 +131,16 @@ public class PlayerMovement : MonoBehaviour
     public bool grassR6 = false;
     public bool grassR7 = false;
     public bool grassR8 = false;
+
+    //maple red coins
+    public bool mapleR1 = false;
+    public bool mapleR2 = false;
+    public bool mapleR3 = false;
+    public bool mapleR4 = false;
+    public bool mapleR5 = false;
+    public bool mapleR6 = false;
+    public bool mapleR7 = false;
+    public bool mapleR8 = false;
 
 
     private void OnEnable()
@@ -247,6 +259,40 @@ public class PlayerMovement : MonoBehaviour
                 sfx.Play();
                 StartCoroutine(Got5Coins());
             }
+
+            if (hit.collider.CompareTag("LeafRedCoin"))
+            {
+                Destroy(hit.collider);
+                coinManager.addCoin();
+                redCoinParticle.Play();
+                mapleR1 = true;
+                sfx.clip = coin;
+                sfx.Play();
+                StartCoroutine(GotRedCoin());
+            }
+
+            if (hit.collider.CompareTag("LeafRedCoin2"))
+            {
+                Destroy(hit.collider);
+                coinManager.addCoin();
+                redCoinParticle.Play();
+                mapleR2 = true;
+                sfx.clip = coin;
+                sfx.Play();
+                StartCoroutine(GotRedCoin());
+            }
+
+            if (hit.collider.CompareTag("LeafRedCoin3"))
+            {
+                Destroy(hit.collider);
+                coinManager.addCoin();
+                redCoinParticle.Play();
+                mapleR3 = true;
+                sfx.clip = coin;
+                sfx.Play();
+                StartCoroutine(GotRedCoin());
+            }
+
         }
     }
 
@@ -272,7 +318,20 @@ public class PlayerMovement : MonoBehaviour
                 searchText.SetActive(true);
             }
 
+            if (hit.collider.CompareTag("LeafRedCoin"))
+            {
+                searchText.SetActive(true);
+            }
 
+            if (hit.collider.CompareTag("LeafRedCoin2"))
+            {
+                searchText.SetActive(true);
+            }
+
+            if (hit.collider.CompareTag("LeafRedCoin3"))
+            {
+                searchText.SetActive(true);
+            }
         }
 
         else
@@ -585,7 +644,7 @@ public class PlayerMovement : MonoBehaviour
             Destroy(other.gameObject);
             coinManager.addCoin();
             Debug.Log("collected red coin ");
-            coinParticle.Play();
+            redCoinParticle.Play();
             sfx.clip = coin;
             sfx.Play();
             grassR1 = true;
@@ -596,7 +655,7 @@ public class PlayerMovement : MonoBehaviour
             Destroy(other.gameObject);
             coinManager.addCoin();
             Debug.Log("collected red coin ");
-            coinParticle.Play();
+            redCoinParticle.Play();
             sfx.clip = coin;
             sfx.Play();
             grassR2 = true;
@@ -607,7 +666,7 @@ public class PlayerMovement : MonoBehaviour
             Destroy(other.gameObject);
             coinManager.addCoin();
             Debug.Log("collected red coin ");
-            coinParticle.Play();
+            redCoinParticle.Play();
             sfx.clip = coin;
             sfx.Play();
             grassR3 = true;
@@ -618,7 +677,7 @@ public class PlayerMovement : MonoBehaviour
             Destroy(other.gameObject);
             coinManager.addCoin();
             Debug.Log("collected coin ");
-            coinParticle.Play();
+            redCoinParticle.Play();
             sfx.clip = coin;
             sfx.Play();
             grassR4 = true;
@@ -629,7 +688,7 @@ public class PlayerMovement : MonoBehaviour
             Destroy(other.gameObject);
             coinManager.addCoin();
             Debug.Log("collected coin ");
-            coinParticle.Play();
+            redCoinParticle.Play();
             sfx.clip = coin;
             sfx.Play();
             grassR5 = true;
@@ -640,7 +699,7 @@ public class PlayerMovement : MonoBehaviour
             Destroy(other.gameObject);
             coinManager.addCoin();
             Debug.Log("collected coin ");
-            coinParticle.Play();
+            redCoinParticle.Play();
             sfx.clip = coin;
             sfx.Play();
             grassR6 = true;
@@ -651,7 +710,7 @@ public class PlayerMovement : MonoBehaviour
             Destroy(other.gameObject);
             coinManager.addCoin();
             Debug.Log("collected coin ");
-            coinParticle.Play();
+            redCoinParticle.Play();
             sfx.clip = coin;
             sfx.Play();
             grassR7 = true;
@@ -662,7 +721,7 @@ public class PlayerMovement : MonoBehaviour
             Destroy(other.gameObject);
             coinManager.addCoin();
             Debug.Log("collected coin ");
-            coinParticle.Play();
+            redCoinParticle.Play();
             sfx.clip = coin;
             sfx.Play();
             grassR8 = true;
@@ -822,5 +881,13 @@ public class PlayerMovement : MonoBehaviour
         found5CoinsText.SetActive(true);
         yield return new WaitForSeconds(2f);
         found5CoinsText.SetActive(false);
+    }
+
+    public IEnumerator GotRedCoin()
+    {
+        yield return new WaitForSeconds(0f);
+        foundRedCoinText.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        foundRedCoinText.SetActive(false);
     }
 }
