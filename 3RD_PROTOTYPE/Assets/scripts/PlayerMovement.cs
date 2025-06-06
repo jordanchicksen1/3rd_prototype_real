@@ -115,6 +115,10 @@ public class PlayerMovement : MonoBehaviour
     public gemPieceMeter gemPieceMeterScript;
     public AudioClip gemDrop;
 
+    //search leaf baskets
+    public GameObject searchText;
+    public GameObject foundCoinText;
+    public GameObject found5CoinsText;
 
     //grass red coins
     public bool grassR1 = false;
@@ -223,6 +227,26 @@ public class PlayerMovement : MonoBehaviour
             {
                 StartCoroutine(NeedTool());
             }
+
+            if (hit.collider.CompareTag("LeafCoin"))
+            {
+                Destroy(hit.collider);
+                coinManager.addCoin();
+                coinParticle.Play();
+                sfx.clip = coin;
+                sfx.Play();
+                StartCoroutine(GotCoin());
+            }
+
+            if (hit.collider.CompareTag("Leaf5Coin"))
+            {
+                Destroy(hit.collider);
+                coinManager.Add5Coins();
+                coinParticle.Play();
+                sfx.clip = coin;
+                sfx.Play();
+                StartCoroutine(Got5Coins());
+            }
         }
     }
 
@@ -237,11 +261,24 @@ public class PlayerMovement : MonoBehaviour
             {
                 mineText.SetActive(true);
             }
+
+            if (hit.collider.CompareTag("LeafCoin"))
+            {
+                searchText.SetActive(true);
+            }
+
+            if (hit.collider.CompareTag("Leaf5Coin"))
+            {
+                searchText.SetActive(true);
+            }
+
+
         }
 
         else
         {
             mineText.SetActive(false);
+            searchText.SetActive(false);
         }
     }
 
@@ -769,5 +806,21 @@ public class PlayerMovement : MonoBehaviour
         pickaxe.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         pickaxe.SetActive(false);
+    }
+
+    public IEnumerator GotCoin()
+    {
+        yield return new WaitForSeconds(0f);
+        foundCoinText.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        foundCoinText.SetActive(false);
+    }
+
+    public IEnumerator Got5Coins()
+    {
+        yield return new WaitForSeconds(0f);
+        found5CoinsText.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        found5CoinsText.SetActive(false);
     }
 }

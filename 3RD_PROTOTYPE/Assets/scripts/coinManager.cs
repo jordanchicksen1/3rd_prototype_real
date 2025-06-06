@@ -84,6 +84,13 @@ public class coinManager : MonoBehaviour
         coinText.text = coin.ToString();
     }
 
+    public void Add5Coins()
+    {
+        coin = coin + 5;
+        coinText.text = coin.ToString();
+    }
+
+
     public IEnumerator CoinSurprise()
     {
         yield return new WaitForSeconds(0f);
