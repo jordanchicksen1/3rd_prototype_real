@@ -151,6 +151,9 @@ public class PlayerMovement : MonoBehaviour
     public bool mapleR7 = false;
     public bool mapleR8 = false;
 
+    //gem gate stuff
+    public GameObject payGemPage;
+
 
     private void OnEnable()
     {
@@ -756,6 +759,13 @@ public class PlayerMovement : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
+
+        if((other.tag == "PayGemTrigger"))
+        {
+            payGemPage.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
     }
 
     
@@ -795,6 +805,13 @@ public class PlayerMovement : MonoBehaviour
         if(other.tag == "HatStand")
         {
             hatStandPanel.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+
+        if ((other.tag == "PayGemTrigger"))
+        {
+            payGemPage.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
