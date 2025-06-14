@@ -87,6 +87,11 @@ public class PlayerMovement : MonoBehaviour
     public bool checkpoint3 = false;
     public GameObject checkpoint3Gem;
 
+    public bool isAtHub = true;
+    public bool isAtGrassLevel = false;
+    public bool isAtAutumnLevel = false;
+    public bool isAtCaveLevel = false;
+
     public GameObject checkpointTex;
 
    public GameObject coinSurpriseText;
@@ -474,6 +479,7 @@ public class PlayerMovement : MonoBehaviour
             Destroy(other.gameObject);
         }
 
+        //checkpoints in grass level
         if(other.tag == "Checkpoint1" && checkpoint1 == false)
         {
             checkpoint1 = true;
@@ -482,6 +488,7 @@ public class PlayerMovement : MonoBehaviour
             checkpoint2Gem.SetActive(false);
             checkpoint3 = false;
             checkpoint3Gem.SetActive(false);
+            isAtGrassLevel = false;
             StartCoroutine(CheckpointSet());
             sfx2.clip = checkpointsfx;
             sfx2.Play();
@@ -495,12 +502,14 @@ public class PlayerMovement : MonoBehaviour
             checkpoint2Gem.SetActive(true);
             checkpoint3 = false;
             checkpoint3Gem.SetActive(false);
+            isAtGrassLevel = false;
             StartCoroutine(CheckpointSet());
             
             sfx2.clip = checkpointsfx;
             sfx2.Play();
         }
 
+        //checkpoints in autumn level
         if (other.tag == "Checkpoint3" && checkpoint3 == false)
         {
             checkpoint1 = false;
@@ -514,7 +523,16 @@ public class PlayerMovement : MonoBehaviour
             sfx2.Play();
         }
 
-        if (other.tag == "KillBox" && checkpoint1 == false && checkpoint2 == false && checkpoint3 == false)
+        if (other.tag == "KillBox" && isAtHub == true)
+        {
+            transform.position = new Vector3(529.469971f, 528.460022f, -7326.3999f);
+            playerHealth.PlayerHit();
+            sfx.clip = ouch;
+            sfx.Play();
+            hitParticle.Play();
+        }
+
+        if (other.tag == "KillBox" && isAtGrassLevel == true)
         {
             transform.position = new Vector3(457.3f, 551.1f, -473.3f);
             playerHealth.PlayerHit();
@@ -523,7 +541,8 @@ public class PlayerMovement : MonoBehaviour
             hitParticle.Play();
         }
 
-        if (other.tag == "KillBox" && checkpoint1 == true && checkpoint2 == false && checkpoint3 == false)
+
+        if (other.tag == "KillBox" && checkpoint1 == true)
         {
             transform.position = new Vector3(457.6f, 549f, -407f);
             playerHealth.PlayerHit();
@@ -532,7 +551,7 @@ public class PlayerMovement : MonoBehaviour
             hitParticle.Play();
         }
 
-        if (other.tag == "KillBox" && checkpoint2 == true && checkpoint1 == false && checkpoint3 == false)
+        if (other.tag == "KillBox" && checkpoint2 == true)
         {
             transform.position = new Vector3(439.78f, 579.19f, -298.66f);
             playerHealth.PlayerHit();
