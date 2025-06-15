@@ -153,6 +153,8 @@ public class PlayerMovement : MonoBehaviour
 
     //gem gate stuff
     public GameObject payGemPage;
+    public GameObject payGemPage2;
+    public GameObject payGemPage3;
 
 
     private void OnEnable()
@@ -766,6 +768,20 @@ public class PlayerMovement : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
+
+        if ((other.tag == "PayGemTrigger2"))
+        {
+            payGemPage2.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+
+        if ((other.tag == "PayGemTrigger3"))
+        {
+            payGemPage3.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
     }
 
     
@@ -815,6 +831,22 @@ public class PlayerMovement : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
+
+        if ((other.tag == "PayGemTrigger2"))
+        {
+            payGemPage2.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+
+        if ((other.tag == "PayGemTrigger3"))
+        {
+            payGemPage3.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+
+
     }
 
     public void OnCollisionEnter(Collision other)

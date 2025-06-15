@@ -58,6 +58,8 @@ TagManager:
   - HatStand
   - GemGate
   - PayGemTrigger
+  - PayGemTrigger2
+  - PayGemTrigger3
   layers:
   - Default
   - TransparentFX
