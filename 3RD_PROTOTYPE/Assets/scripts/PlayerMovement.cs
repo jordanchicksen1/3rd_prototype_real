@@ -161,9 +161,11 @@ public class PlayerMovement : MonoBehaviour
     //levels
     public GameObject desertIsleLevel;
     public GameObject desertIslePanel;
+    public GameObject desertIsleTitle;
     public Color desertIsleColour;
     public GameObject grassyPlainsLevel;
     public GameObject grassyPlainsPanel;
+    public GameObject grassyPlainsTitle;
     public Color grassyPlainsColour;
     public Camera playerCam;
 
@@ -576,13 +578,21 @@ public class PlayerMovement : MonoBehaviour
             hitParticle.Play();
         }
 
+        if (other.tag == "KillBox" && isAtAutumnLevel == true)
+        {
+            transform.position = new Vector3(-34.196949f, -18.1399994f, -58.5999985f);
+            playerHealth.PlayerHit();
+            sfx.clip = ouch;
+            sfx.Play();
+            hitParticle.Play();
+        }
+
         if (other.tag == "LevelEnd")
         {
-            levelEndScreen.SetActive(true);
+            
             sfx.clip = celebrationSFX;
             sfx.Play();
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            StartCoroutine(BackToDesertIsle()); 
         }
 
         //gem on triggers to make them disappear from map
@@ -997,23 +1007,36 @@ public class PlayerMovement : MonoBehaviour
     {
         grassyPlainsPanel.SetActive(true);
         grassyPlainsLevel.SetActive(true);
+        isAtHub = false;
         yield return new WaitForSeconds(1f);
         desertIsleLevel.SetActive(false);
         transform.position = new Vector3(457.399994f, 550.299988f, -466.100006f);
         playerCam.backgroundColor = grassyPlainsColour;
+        isAtGrassLevel = true;
         yield return new WaitForSeconds(2f);
         grassyPlainsPanel.SetActive(false);
+        grassyPlainsTitle.SetActive(true) ;
+        yield return new WaitForSeconds(2f);
+        grassyPlainsTitle.SetActive(false) ;
     }
 
     public IEnumerator BackToDesertIsle()
     {
         desertIslePanel.SetActive(true);
         desertIsleLevel.SetActive(true);
+        checkpoint1 = false;
+        checkpoint2 = false;
+        checkpoint3 = false;
+        isAtGrassLevel = false;
         yield return new WaitForSeconds(1f);
         grassyPlainsLevel.SetActive(false);
         transform.position = new Vector3(537f, 530.5f, -7323.8999f);
         playerCam.backgroundColor = desertIsleColour;
+        isAtHub = true;
         yield return new WaitForSeconds(2f);
         desertIslePanel.SetActive(false);
+        desertIsleTitle.SetActive(true) ;
+        yield return new WaitForSeconds(2f);
+        desertIsleTitle.SetActive(false);
     }
 }
