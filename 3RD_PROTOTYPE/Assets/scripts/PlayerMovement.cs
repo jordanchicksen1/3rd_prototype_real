@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -155,6 +156,16 @@ public class PlayerMovement : MonoBehaviour
     public GameObject payGemPage;
     public GameObject payGemPage2;
     public GameObject payGemPage3;
+
+
+    //levels
+    public GameObject desertIsleLevel;
+    public GameObject desertIslePanel;
+    public Color desertIsleColour;
+    public GameObject grassyPlainsLevel;
+    public GameObject grassyPlainsPanel;
+    public Color grassyPlainsColour;
+    public Camera playerCam;
 
 
     private void OnEnable()
@@ -782,6 +793,11 @@ public class PlayerMovement : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
+
+        if((other.tag == "GrassyPlainsTeleporter"))
+        {
+            StartCoroutine(GrassyPlainsTelePort());
+        }
     }
 
     
@@ -975,5 +991,29 @@ public class PlayerMovement : MonoBehaviour
         foundRedCoinText.SetActive(true);
         yield return new WaitForSeconds(2f);
         foundRedCoinText.SetActive(false);
+    }
+
+    public IEnumerator GrassyPlainsTelePort() 
+    {
+        grassyPlainsPanel.SetActive(true);
+        grassyPlainsLevel.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        desertIsleLevel.SetActive(false);
+        transform.position = new Vector3(457.399994f, 550.299988f, -466.100006f);
+        playerCam.backgroundColor = grassyPlainsColour;
+        yield return new WaitForSeconds(2f);
+        grassyPlainsPanel.SetActive(false);
+    }
+
+    public IEnumerator BackToDesertIsle()
+    {
+        desertIslePanel.SetActive(true);
+        desertIsleLevel.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        grassyPlainsLevel.SetActive(false);
+        transform.position = new Vector3(537f, 530.5f, -7323.8999f);
+        playerCam.backgroundColor = desertIsleColour;
+        yield return new WaitForSeconds(2f);
+        desertIslePanel.SetActive(false);
     }
 }
