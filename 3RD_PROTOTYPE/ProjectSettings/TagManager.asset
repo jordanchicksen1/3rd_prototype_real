@@ -60,6 +60,7 @@ TagManager:
   - PayGemTrigger
   - PayGemTrigger2
   - PayGemTrigger3
+  - GrassyPlainsTeleporter
   layers:
   - Default
   - TransparentFX
