@@ -61,6 +61,11 @@ TagManager:
   - PayGemTrigger2
   - PayGemTrigger3
   - GrassyPlainsTeleporter
+  - MapleRedFour
+  - MapleRedFive
+  - MapleRedSix
+  - MapleRedSeven
+  - MapleRedEight
   layers:
   - Default
   - TransparentFX
