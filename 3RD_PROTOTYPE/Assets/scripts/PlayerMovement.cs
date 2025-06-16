@@ -163,10 +163,17 @@ public class PlayerMovement : MonoBehaviour
     public GameObject desertIslePanel;
     public GameObject desertIsleTitle;
     public Color desertIsleColour;
+    
     public GameObject grassyPlainsLevel;
     public GameObject grassyPlainsPanel;
     public GameObject grassyPlainsTitle;
     public Color grassyPlainsColour;
+
+    public GameObject mapleGroveLevel;
+    public GameObject mapleGrovePanel;
+    public GameObject mapleGroveTitle;
+    public Color mapleGroveColour;
+
     public Camera playerCam;
 
 
@@ -1028,8 +1035,11 @@ public class PlayerMovement : MonoBehaviour
         checkpoint2 = false;
         checkpoint3 = false;
         isAtGrassLevel = false;
+        isAtAutumnLevel = false;
+        isAtCaveLevel = false;
         yield return new WaitForSeconds(1f);
         grassyPlainsLevel.SetActive(false);
+        mapleGroveLevel.SetActive(false);
         transform.position = new Vector3(537f, 530.5f, -7323.8999f);
         playerCam.backgroundColor = desertIsleColour;
         isAtHub = true;
