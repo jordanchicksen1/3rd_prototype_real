@@ -546,6 +546,7 @@ public class PlayerMovement : MonoBehaviour
             checkpoint2Gem.SetActive(false);
             checkpoint3 = true;
             checkpoint3Gem.SetActive(true);
+            isAtAutumnLevel = false;
             StartCoroutine(CheckpointSet());
             sfx2.clip = checkpointsfx;
             sfx2.Play();
@@ -591,6 +592,15 @@ public class PlayerMovement : MonoBehaviour
         if (other.tag == "KillBox" && isAtAutumnLevel == true)
         {
             transform.position = new Vector3(-34.196949f, -18.1399994f, -58.5999985f);
+            playerHealth.PlayerHit();
+            sfx.clip = ouch;
+            sfx.Play();
+            hitParticle.Play();
+        }
+
+        if (other.tag == "KillBox" && checkpoint3 == true)
+        {
+            transform.position = new Vector3(-87.6999969f, -26.4099998f, 18.1399994f);
             playerHealth.PlayerHit();
             sfx.clip = ouch;
             sfx.Play();

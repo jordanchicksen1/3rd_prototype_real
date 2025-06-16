@@ -66,6 +66,7 @@ TagManager:
   - MapleRedSix
   - MapleRedSeven
   - MapleRedEight
+  - Checkpoint3
   layers:
   - Default
   - TransparentFX
