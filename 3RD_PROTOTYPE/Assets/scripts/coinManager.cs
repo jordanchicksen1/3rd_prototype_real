@@ -10,9 +10,13 @@ public class coinManager : MonoBehaviour
     public GameObject rewardGem;
     public GameObject gem7Trigger;
     public GameObject gem7UI;
+
+    public GameObject rewardGemMaple;
+
     public PlayerMovement playerMovement;
 
     public GameObject coinsText;
+    public GameObject coinsTextMaple;
 
     public AudioSource sfx2;
     public AudioClip coinSurpriseSFX;
@@ -47,10 +51,21 @@ public class coinManager : MonoBehaviour
             sfx2.Play();
             playerMovement.grassR1 = false;
         }
-        else
+          
+        
+
+        if (playerMovement.mapleR1 == true && playerMovement.mapleR2 == true && playerMovement.mapleR3 == true && playerMovement.mapleR4 == true && playerMovement.mapleR5 == true && playerMovement.mapleR6 == true && playerMovement.mapleR7 == true && playerMovement.mapleR8 == true)
         {
-            return;
+            rewardGemMaple.SetActive(true);
+           // gem7Trigger.SetActive(true);
+            //gem7UI.SetActive(true);
+            StartCoroutine(CoinSurpriseMaple());
+            sfx2.clip = coinSurpriseSFX;
+            sfx2.Play();
+            playerMovement.mapleR1 = false;
+            Debug.Log("got all red coins");
         }
+        
     }
 
     public void subtractNut()
@@ -98,4 +113,13 @@ public class coinManager : MonoBehaviour
         yield return new WaitForSeconds(5f);
         coinsText.SetActive(false);
     }
+
+    public IEnumerator CoinSurpriseMaple()
+    {
+        yield return new WaitForSeconds(0f);
+        coinsTextMaple.SetActive(true);
+        yield return new WaitForSeconds(5f);
+        coinsTextMaple.SetActive(false);
+    }
+
 }

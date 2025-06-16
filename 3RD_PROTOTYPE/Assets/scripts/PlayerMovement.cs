@@ -162,16 +162,19 @@ public class PlayerMovement : MonoBehaviour
     public GameObject desertIsleLevel;
     public GameObject desertIslePanel;
     public GameObject desertIsleTitle;
+    public GameObject desertIsleMap;
     public Color desertIsleColour;
     
     public GameObject grassyPlainsLevel;
     public GameObject grassyPlainsPanel;
     public GameObject grassyPlainsTitle;
+    public GameObject grassyPlainsMap;
     public Color grassyPlainsColour;
 
     public GameObject mapleGroveLevel;
     public GameObject mapleGrovePanel;
     public GameObject mapleGroveTitle;
+    public GameObject mapleGroveMap;
     public Color mapleGroveColour;
 
     public Camera playerCam;
@@ -783,7 +786,62 @@ public class PlayerMovement : MonoBehaviour
             grassR8 = true;
         }
 
-        if((other.tag == "HatStand"))
+        if (other.tag == "MapleRedFour")
+        {
+            Destroy(other.gameObject);
+            coinManager.addCoin();
+            Debug.Log("collected coin");
+            redCoinParticle.Play();
+            sfx.clip = coin;
+            sfx.Play();
+            mapleR4 = true;
+        }
+
+        if (other.tag == "MapleRedFive")
+        {
+            Destroy(other.gameObject);
+            coinManager.addCoin();
+            Debug.Log("collected coin");
+            redCoinParticle.Play();
+            sfx.clip = coin;
+            sfx.Play();
+            mapleR5 = true;
+        }
+
+        if (other.tag == "MapleRedSix")
+        {
+            Destroy(other.gameObject);
+            coinManager.addCoin();
+            Debug.Log("collected coin");
+            redCoinParticle.Play();
+            sfx.clip = coin;
+            sfx.Play();
+            mapleR6 = true;
+        }
+
+        if (other.tag == "MapleRedSeven")
+        {
+            Destroy(other.gameObject);
+            coinManager.addCoin();
+            Debug.Log("collected coin");
+            redCoinParticle.Play();
+            sfx.clip = coin;
+            sfx.Play();
+            mapleR7 = true;
+        }
+
+        if (other.tag == "MapleRedEight")
+        {
+            Destroy(other.gameObject);
+            coinManager.addCoin();
+            Debug.Log("collected coin");
+            redCoinParticle.Play();
+            sfx.clip = coin;
+            sfx.Play();
+            mapleR8 = true;
+        }
+
+        if ((other.tag == "HatStand"))
         {
             hatStandPanel.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
@@ -1014,6 +1072,8 @@ public class PlayerMovement : MonoBehaviour
     {
         grassyPlainsPanel.SetActive(true);
         grassyPlainsLevel.SetActive(true);
+        desertIsleMap.SetActive(false);
+        grassyPlainsMap.SetActive(true);
         isAtHub = false;
         yield return new WaitForSeconds(1f);
         desertIsleLevel.SetActive(false);
@@ -1025,6 +1085,25 @@ public class PlayerMovement : MonoBehaviour
         grassyPlainsTitle.SetActive(true) ;
         yield return new WaitForSeconds(2f);
         grassyPlainsTitle.SetActive(false) ;
+    }
+
+    public IEnumerator MapleGroveTelePort()
+    {
+        mapleGrovePanel.SetActive(true);
+        mapleGroveLevel.SetActive(true);
+        desertIsleMap.SetActive(false);
+        mapleGroveMap.SetActive(true);
+        isAtHub = false;
+        yield return new WaitForSeconds(1f);
+        desertIsleLevel.SetActive(false);
+        transform.position = new Vector3(-34.1899986f, -18.3400002f, -54.0600014f);
+        playerCam.backgroundColor = mapleGroveColour;
+        isAtAutumnLevel = true;
+        yield return new WaitForSeconds(2f);
+        mapleGrovePanel.SetActive(false);
+        mapleGroveTitle.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        mapleGroveTitle.SetActive(false);
     }
 
     public IEnumerator BackToDesertIsle()
@@ -1039,7 +1118,9 @@ public class PlayerMovement : MonoBehaviour
         isAtCaveLevel = false;
         yield return new WaitForSeconds(1f);
         grassyPlainsLevel.SetActive(false);
+        grassyPlainsMap.SetActive(false);
         mapleGroveLevel.SetActive(false);
+        mapleGroveMap.SetActive(false);
         transform.position = new Vector3(537f, 530.5f, -7323.8999f);
         playerCam.backgroundColor = desertIsleColour;
         isAtHub = true;
