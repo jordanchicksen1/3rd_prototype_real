@@ -17,6 +17,7 @@ public class menuButtons : MonoBehaviour
     public GameObject player;
     public GameObject gem;
 
+    public GameObject screen0;
     public GameObject screen1;
     public GameObject screen2;
     public GameObject screen3;
@@ -33,6 +34,12 @@ public class menuButtons : MonoBehaviour
 
     public void PlayButton()
     {
+        screen0.SetActive(true);
+    }
+
+    public void NextZero()
+    {
+        screen0.SetActive(false);
         screen1.SetActive(true);
     }
 

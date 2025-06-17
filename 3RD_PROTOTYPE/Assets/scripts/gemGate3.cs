@@ -23,7 +23,7 @@ public class gemGate3 : MonoBehaviour
         if (gemManager.gem > 2.99 && hasPressedButton == false)
         {
             StartCoroutine(OpenGate());
-            gemManager.payGemShallow();
+            gemManager.payGem();
             hasPressedButton = true;
         }
 

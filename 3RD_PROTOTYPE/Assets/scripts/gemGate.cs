@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Video;
 
 public class gemGate : MonoBehaviour
 {
@@ -25,7 +24,7 @@ public class gemGate : MonoBehaviour
         if (gemManager.gem > 2.99 && hasPressedButton == false)
         {
             StartCoroutine(OpenGate());
-            gemManager.payGemMaple();
+            gemManager.payGem();
             hasPressedButton = true;
         }
 
