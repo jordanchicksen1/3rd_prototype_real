@@ -68,6 +68,11 @@ TagManager:
   - MapleRedEight
   - Checkpoint3
   - MapleGroveTeleporter
+  - Gem1M
+  - Gem2M
+  - Gem3M
+  - Gem4M
+  - Gem5M
   layers:
   - Default
   - TransparentFX

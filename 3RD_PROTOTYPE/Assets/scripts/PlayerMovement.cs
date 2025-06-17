@@ -44,6 +44,13 @@ public class PlayerMovement : MonoBehaviour
 
     public bool gotGem7 = false;
 
+    //maple map
+    public GameObject gemPic1M;
+    public GameObject gemPic2M;
+    public GameObject gemPic3M;
+    public GameObject gemPic4M;
+    public GameObject gemPic5M;
+
 
     //dodge
     public bool canDodge = true;
@@ -659,6 +666,36 @@ public class PlayerMovement : MonoBehaviour
             Destroy(other.gameObject);
             Destroy(coinSurpriseText);
             Debug.Log("should turn off picture");
+        }
+
+        if(other.tag == "Gem1M")
+        {
+            Destroy(other.gameObject);
+            Destroy(gemPic1M);
+        }
+
+        if (other.tag == "Gem2M")
+        {
+            Destroy(other.gameObject);
+            Destroy(gemPic2M);
+        }
+
+        if (other.tag == "Gem3M")
+        {
+            Destroy(other.gameObject);
+            Destroy(gemPic3M);
+        }
+
+        if (other.tag == "Gem4M")
+        {
+            Destroy(other.gameObject);
+            Destroy(gemPic4M);
+        }
+
+        if (other.tag == "Gem5M")
+        {
+            Destroy(other.gameObject);
+            Destroy(gemPic5M);
         }
 
         if (other.tag == "ShopTrigger1")

@@ -11,6 +11,8 @@ public class coinManager : MonoBehaviour
     public GameObject gem7Trigger;
     public GameObject gem7UI;
 
+    public GameObject gem5MPic;
+
     public GameObject rewardGemMaple;
 
     public PlayerMovement playerMovement;
@@ -58,7 +60,7 @@ public class coinManager : MonoBehaviour
         {
             rewardGemMaple.SetActive(true);
            // gem7Trigger.SetActive(true);
-            //gem7UI.SetActive(true);
+            gem5MPic.SetActive(true);
             StartCoroutine(CoinSurpriseMaple());
             sfx2.clip = coinSurpriseSFX;
             sfx2.Play();
