@@ -22,14 +22,14 @@ public class gemGate : MonoBehaviour
 
     public void PayGem()
     {
-        if (gemManager.gem > 2.99 && hasPressedButton == false)
+        if (gemManager.gem > 4.99 && hasPressedButton == false)
         {
             StartCoroutine(OpenGate());
-            gemManager.payGem();
+            gemManager.payGemMaple();
             hasPressedButton = true;
         }
 
-        if(gemManager.gem < 2.99 && hasPressedButton == false)
+        if(gemManager.gem < 4.99 && hasPressedButton == false)
         {
             StartCoroutine(NotEnoughGems());
             hasPressedButton = true;

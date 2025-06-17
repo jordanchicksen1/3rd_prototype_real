@@ -23,4 +23,20 @@ public class gemManager : MonoBehaviour
         gemText.text = gem.ToString();
         endgameGemText.text = gem.ToString();
     }
+
+    public void payGemMaple()
+    {
+        gem = gem - 5;
+        gemText.text = gem.ToString();
+        endgameGemText.text = gem.ToString();
+    }
+
+    public void payGemShallow()
+    {
+        gem = gem - 7;
+        gemText.text = gem.ToString();
+        endgameGemText.text = gem.ToString();
+    }
+
+
 }
