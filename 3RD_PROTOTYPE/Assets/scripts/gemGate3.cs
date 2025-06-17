@@ -20,14 +20,14 @@ public class gemGate3 : MonoBehaviour
 
     public void PayGem()
     {
-        if (gemManager.gem > 6.99 && hasPressedButton == false)
+        if (gemManager.gem > 2.99 && hasPressedButton == false)
         {
             StartCoroutine(OpenGate());
             gemManager.payGemShallow();
             hasPressedButton = true;
         }
 
-        if (gemManager.gem < 6.99 && hasPressedButton == false)
+        if (gemManager.gem < 2.99 && hasPressedButton == false)
         {
             StartCoroutine(NotEnoughGems());
             hasPressedButton = true;

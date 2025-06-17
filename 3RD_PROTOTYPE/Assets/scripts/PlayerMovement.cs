@@ -184,6 +184,12 @@ public class PlayerMovement : MonoBehaviour
     public GameObject mapleGroveMap;
     public Color mapleGroveColour;
 
+    public GameObject shallowGrottoLevel;
+    public GameObject shallowGrottoPanel;
+    public GameObject shallowGrottoTitle;
+    public GameObject shallowGrottoMap;
+    public Color shallowGrottoColour;
+
     public Camera playerCam;
 
 
@@ -614,6 +620,15 @@ public class PlayerMovement : MonoBehaviour
             hitParticle.Play();
         }
 
+        if (other.tag == "KillBox" && isAtCaveLevel == true)
+        {
+            transform.position = new Vector3(-91f, 526.659973f, -7584.2002f);
+            playerHealth.PlayerHit();
+            sfx.clip = ouch;
+            sfx.Play();
+            hitParticle.Play();
+        }
+
         if (other.tag == "LevelEnd")
         {
             
@@ -736,6 +751,8 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(GotPickaxe());
             gotPickaxeParticle.Play();
             gemPieceMeter.SetActive(true);
+            sfx.clip = gem;
+            sfx.Play();
         }
 
         if (other.tag == "GemPiece")
@@ -924,6 +941,11 @@ public class PlayerMovement : MonoBehaviour
         if (other.tag == "MapleGroveTeleporter")
         {
             StartCoroutine(MapleGroveTelePort());
+        }
+
+        if(other.tag == "ShallowGrottoTeleporter")
+        {
+            StartCoroutine(ShallowGrottoTelePort());    
         }
     }
 
@@ -1158,6 +1180,25 @@ public class PlayerMovement : MonoBehaviour
         mapleGroveTitle.SetActive(false);
     }
 
+    public IEnumerator ShallowGrottoTelePort()
+    {
+        shallowGrottoPanel.SetActive(true);
+        shallowGrottoLevel.SetActive(true);
+        desertIsleMap.SetActive(false);
+        shallowGrottoMap.SetActive(true);
+        isAtHub = false;
+        yield return new WaitForSeconds(1f);
+        desertIsleLevel.SetActive(false);
+        transform.position = new Vector3(-91f, 526.659973f, -7584.2002f);
+        playerCam.backgroundColor = shallowGrottoColour;
+        isAtCaveLevel = true;
+        yield return new WaitForSeconds(2f);
+        shallowGrottoPanel.SetActive(false);
+        shallowGrottoTitle.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        shallowGrottoTitle.SetActive(false);
+    }
+
     public IEnumerator BackToDesertIsle()
     {
         desertIslePanel.SetActive(true);
@@ -1174,6 +1215,8 @@ public class PlayerMovement : MonoBehaviour
         grassyPlainsMap.SetActive(false);
         mapleGroveLevel.SetActive(false);
         mapleGroveMap.SetActive(false);
+        shallowGrottoLevel.SetActive(false);
+        shallowGrottoMap.SetActive(false);
         transform.position = new Vector3(537f, 530.5f, -7323.8999f);
         playerCam.backgroundColor = desertIsleColour;
         isAtHub = true;

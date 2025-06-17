@@ -73,6 +73,7 @@ TagManager:
   - Gem3M
   - Gem4M
   - Gem5M
+  - ShallowGrottoTeleporter
   layers:
   - Default
   - TransparentFX
