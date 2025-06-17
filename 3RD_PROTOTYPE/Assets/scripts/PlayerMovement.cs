@@ -883,6 +883,11 @@ public class PlayerMovement : MonoBehaviour
         {
             StartCoroutine(GrassyPlainsTelePort());
         }
+
+        if (other.tag == "MapleGroveTeleporter")
+        {
+            StartCoroutine(MapleGroveTelePort());
+        }
     }
 
     
@@ -1120,6 +1125,7 @@ public class PlayerMovement : MonoBehaviour
     {
         desertIslePanel.SetActive(true);
         desertIsleLevel.SetActive(true);
+        desertIsleMap.SetActive(true);
         checkpoint1 = false;
         checkpoint2 = false;
         checkpoint3 = false;

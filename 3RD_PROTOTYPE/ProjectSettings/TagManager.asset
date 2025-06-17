@@ -67,6 +67,7 @@ TagManager:
   - MapleRedSeven
   - MapleRedEight
   - Checkpoint3
+  - MapleGroveTeleporter
   layers:
   - Default
   - TransparentFX
