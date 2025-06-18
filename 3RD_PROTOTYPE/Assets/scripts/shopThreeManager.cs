@@ -139,6 +139,7 @@ public class shopThreeManager : MonoBehaviour
             sfx.Play();
             purchaseGoneThrough = true;
             hatStandMenu.boughtHardHat();
+            gemManager.addHat();
         }
 
         if (coinManager.coin < 9.99 && purchaseGoneThrough == false)

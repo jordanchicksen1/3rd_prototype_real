@@ -138,6 +138,7 @@ public class shopOneButtons : MonoBehaviour
             sfx.Play();
             purchaseGoneThrough = true;
             hatStandMenu.boughtGrassyHat();
+            gemManager.addHat();
 
         }
 
