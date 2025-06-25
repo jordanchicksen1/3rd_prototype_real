@@ -69,6 +69,12 @@ public class gemPieceMeter : MonoBehaviour
 
     }
 
+    public void SubtractGemPiece()
+    {
+        currentGemPiece = currentGemPiece - 4f;
+        updateGemPieceBar();
+    }
+
     public IEnumerator GotGem()
     {
         yield return new WaitForSeconds(0f);

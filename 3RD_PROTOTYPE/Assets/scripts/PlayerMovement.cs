@@ -125,6 +125,8 @@ public class PlayerMovement : MonoBehaviour
     public bool readyToMine = false;
     public GameObject needTool;
 
+    public ParticleSystem gemPieceParticle;
+
     //gem pieces
     public Transform playerNose;
     public float mineRange = 1f;
@@ -161,6 +163,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject payGemPage;
     public GameObject payGemPage2;
     public GameObject payGemPage3;
+    public GameObject finalPayGemPage;
 
 
     //levels
@@ -190,6 +193,10 @@ public class PlayerMovement : MonoBehaviour
 
     public Camera playerCam;
 
+    //ending stuff
+    public GameObject endPanel;
+    public GameObject hubWorldMusic;
+    public GameObject endMusic;
 
     private void OnEnable()
     {
@@ -281,6 +288,7 @@ public class PlayerMovement : MonoBehaviour
                 gemPieceMeterScript.GotGemPiece();
                 sfx2.clip = gemDrop;
                 sfx2.Play();
+                gemPieceParticle.Play();
             }
 
             if (hit.collider.CompareTag("GemPiece") && hasPickaxe == false)
@@ -931,6 +939,13 @@ public class PlayerMovement : MonoBehaviour
             Cursor.visible = true;
         }
 
+        if(other.tag == "TheEnd")
+        {
+            finalPayGemPage.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+
         if((other.tag == "GrassyPlainsTeleporter"))
         {
             StartCoroutine(GrassyPlainsTelePort());
@@ -944,6 +959,18 @@ public class PlayerMovement : MonoBehaviour
         if(other.tag == "ShallowGrottoTeleporter")
         {
             StartCoroutine(ShallowGrottoTelePort());    
+        }
+
+        if(other.tag == "Final")
+        {
+            endPanel.SetActive(true);
+            isPaused = true;
+            sfx.clip = celebrationSFX;
+            sfx.Play();
+            hubWorldMusic.SetActive(false);
+            endMusic.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 
@@ -1009,6 +1036,12 @@ public class PlayerMovement : MonoBehaviour
             Cursor.visible = false;
         }
 
+        if (other.tag == "TheEnd")
+        {
+            finalPayGemPage.SetActive(false);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
 
     }
 

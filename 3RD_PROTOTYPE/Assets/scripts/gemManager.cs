@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using TMPro;
 using UnityEngine;
 
 public class gemManager : MonoBehaviour
 {
     public int gem;
+    public int endGem;
     public TextMeshProUGUI gemText;
     public TextMeshProUGUI endgameGemText;
 
@@ -14,8 +16,9 @@ public class gemManager : MonoBehaviour
     public void addGem()
     {
         gem = gem + 1;
+        endGem = endGem + 1;
         gemText.text = gem.ToString();
-        endgameGemText.text = gem.ToString();
+        endgameGemText.text = endGem.ToString();
     }
     
     public void addHat() 
@@ -29,6 +32,12 @@ public class gemManager : MonoBehaviour
         gem = gem - 3;
         gemText.text = gem.ToString();
        
+    }
+
+    public void finalPayGem()
+    {
+        gem = gem - 7;
+        gemText.text = gem.ToString();
     }
 
     public void payGemMaple()

@@ -15,6 +15,12 @@ public class payTrigger : MonoBehaviour
 
     public coinManager coinManager;
 
+    public gemPieceMeter gemPieceMeter;
+
+    public AudioSource sfx;
+    public AudioClip moneySFx;
+    public AudioClip deniedSFX;
+
     public void OnTriggerStay(Collider other)
     {
         if(other.tag == "Player")
@@ -27,17 +33,21 @@ public class payTrigger : MonoBehaviour
 
     public void Pay()
     {
-        if(coinManager.coin > 14.99)
+        if(gemPieceMeter.currentGemPiece > 3.99)
         {
-            coinManager.subtractCoin();
+            sfx.clip = moneySFx;
+            sfx.Play();
+            gemPieceMeter.SubtractGemPiece();
             thanksForBusinness.SetActive(true);
             payingIntructionsButton.SetActive(false);
             Destroy(gate);
             
         }
 
-        if(coinManager.coin < 14.99)
+        if(gemPieceMeter.currentGemPiece < 3.99)
         {
+            sfx.clip = deniedSFX;
+            sfx.Play();
             payingInstructions.SetActive(false);
             notEnoughMoney.SetActive(true);
         }
